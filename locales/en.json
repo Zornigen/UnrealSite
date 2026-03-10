@@ -1,0 +1,177 @@
+﻿{
+    "aria":  {
+                 "socialLinks":  "social links",
+                 "sectionNavigation":  "section navigation",
+                 "compareSlider":  "Comparison slider"
+             },
+    "sections":  [
+                     {
+                         "id":  "hero",
+                         "label":  "Start"
+                     },
+                    {
+                        "id":  "new-world",
+                        "label":  "New World"
+                     },
+                     {
+                         "id":  "roadmap",
+                         "label":  "Roadmap"
+                     },
+                     {
+                         "id":  "prereg",
+                         "label":  "Application"
+                     },
+                     {
+                         "id":  "media",
+                         "label":  "Media"
+                     }
+                 ],
+    "social":  [
+                   {
+                       "label":  "Ds",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Tg",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Yt",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Vk",
+                       "href":  "#"
+                   }
+               ],
+    "hero":  {
+                 "ariaTitle":  "UNREAL LAST CHAOS",
+                 "title":  {
+                               "desktopTop":  "UnreaL",
+                               "desktopBottom":  "LastChaoS",
+                               "mobileTop":  "UnreaL",
+                               "mobileBottom":  "LastChaoS"
+                           },
+                 "subtitle":  "A rebirth of the old world through modern technological possibilities.",
+                 "timerLabels":  [
+                                     "Days",
+                                     "Hours",
+                                     "Minutes",
+                                     "Seconds"
+                                 ],
+                 "cta":  {
+                             "support":  "Support",
+                             "prereg":  "Pre-Registration",
+                             "about":  "About"
+                         },
+                 "badge":  {
+                               "pairs":  [
+                                             {
+                                                 "old":  "Serious Engine 1.5",
+                                                 "new":  "Unreal Engine 5.7"
+                                             },
+                                             {
+                                                 "old":  "DirectX 8.1",
+                                                 "new":  "DirectX 12"
+                                             },
+                                             {
+                                                 "old":  "ASCII Shaders",
+                                                 "new":  "HLSL Shaders"
+                                             },
+                                             {
+                                                 "old":  "CPU Particles",
+                                                 "new":  "Niagara FX"
+                                             },
+                                             {
+                                                 "old":  "Baked Lighting",
+                                                 "new":  "Lumen GI"
+                                             }
+                                         ]
+                           }
+             },
+    "prereg":  {
+                   "title":  "Pre-Registration",
+                   "kicker":  "Registered players",
+                   "emailPlaceholder":  "Enter email",
+                   "submit":  "Submit",
+                   "rewards":  "Each pre-registered nickname will receive the \"One of the First\" title after reaching level 50"
+               },
+    "support":  {
+                    "cta":  "Gratitude",
+                    "kicker":  "Rubles donated",
+                    "amountPlaceholder":  "Enter amount",
+                    "description":  "All donated funds will be spent on the marketing campaign."
+                },
+    "participants":  {
+                         "title":  "Participants"
+                     },
+    "newWorld":  {
+                     "title":  "New World: Before and After",
+                     "before":  "Before: Serious Engine 1.5",
+                     "after":  "After: Unreal Engine 5.7",
+                     "pairs":  [
+                                   "Harbor",
+                                   "Citadel",
+                                   "Plains",
+                                   "Valley"
+                               ]
+                 },
+    "roadmap":  {
+                    "title":  "Migration Roadmap",
+                    "completedLabel": "Completed phase",
+                    "currentLabel": "Current focus",
+                    "inProgressLabel": "In progress",
+                    "steps":  [
+                                  {
+                                      "title":  "Tech Audit",
+                                      "desc":  "Codebase and asset pipeline audit",
+                                      "detail": "We break the project down to its foundation: code, assets, tools, legacy dependencies, and every hidden connection that has kept the game world functioning over the years. This phase ensures that no critical system is lost in migration and every next step is built on a precise map of the world instead of guesswork. Here we identify technical bottlenecks, risky areas of logic, outdated solutions, and the elements that should not merely be moved but dramatically strengthened inside the new architecture. In practice, the audit turns migration from a dangerous leap into a controlled offensive, where every detail is known in advance and every future decision is backed by evidence.",
+                                      "done":  true
+                                  },
+                                  {
+                                      "title":  "Core Migration",
+                                      "desc":  "Server and combat logic migration",
+                                      "detail": "Server architecture, combat logic, and the fundamental rules of the game are moved into the new environment without losing the spirit of the original. This is where we preserve the heart of the project so Unreal strengthens the game instead of erasing its identity. The goal is not just to make the systems run, but to preserve the rhythm of combat, the flow of progression, and the internal logic of the world that players already know by instinct. We are lifting the foundation of the project onto a higher technical level so that under the hood everything becomes stronger, cleaner, and more stable, while on the surface it still feels like the LastChaos players remember, only without the old limitations. This is the phase where the structural strength of the new world is forged.",
+                                      "done":  true
+                                  },
+                                  {
+                                      "title":  "Visual Overhaul",
+                                      "desc":  "Materials, lighting, and post effects",
+                                      "detail": "The old world receives a new body: modern materials, living light, atmospheric shadows, and cinematic depth. Our goal is not just to refresh the visuals, but to reveal familiar places as if they were always meant to look this way. We rebuild the feeling of space itself: how metal catches the light, how ancient stone reads in shadow, how fog softens the distance, and how sunlight settles across architecture, fields, and water. This phase is not only about beauty, but about emotional impact, about turning a known location into a frame that feels worthy of a trailer poster. The visual overhaul must prove that Unreal changes not just the shell of the project, but the way the world is perceived in every scene.",
+                                      "done":  false,
+                                      "inProgress": true
+                                  },
+                                  {
+                                      "title":  "Closed Beta",
+                                      "desc":  "Limited-access testing",
+                                      "detail": "This is the moment the first players step into the new world to test stability, balance, and the overall feel of the experience. The project stops being an internal build here and starts proving its strength in live contact with the community. Closed beta is not a ceremonial milestone, but a real trial under pressure: how combat feels over time, where the pacing weakens, what breaks during long sessions, and which details are noticed by real players rather than by a developer’s eye. This is where we receive the most honest feedback possible, the kind that separates an impressive presentation from a truly ready game world. It is a phase of refinement through contact with the community, where the project faces its first real test.",
+                                      "done":  false
+                                  },
+                                  {
+                                      "title":  "Release Prep",
+                                      "desc":  "Optimization and release builds",
+                                      "detail": "Final polish, optimization, last-mile fixes, and preparation of the release builds. This is not just the launch of another version, but the official transition into the next era of Unreal LastChaos. At this stage, everything has to work as one: performance, stability, visual quality, UX, and the sense that every element is complete and deliberate. We push the build to a state where it no longer feels like an ambitious experiment, but like a full new chapter of the project. This is the point where migration stops being an internal team process and becomes a public fact: the world has been reborn, the new technology has been claimed, and what lies ahead is no longer transition, but the life of the next version of the game.",
+                                      "done":  false
+                                  }
+                              ]
+                },
+    "media":  {
+                  "title":  "Media",
+                  "items":  [
+                                "Shot 01",
+                                "Shot 02",
+                                "Shot 03",
+                                "Video 01",
+                                "Shot 04",
+                                "Video 02"
+                            ]
+              },
+    "popup":  {
+                  "title":  "Confirmation",
+                  "sentPrefix":  "Code sent to",
+                  "codePlaceholder":  "Confirmation code",
+                  "nicknamePlaceholder":  "Preferred nickname",
+                  "confirm":  "Confirm",
+                  "close":  "Close"
+              }
+}
