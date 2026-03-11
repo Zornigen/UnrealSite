@@ -54,42 +54,42 @@ const CLASS_THEMES = [
     glow: "rgba(169, 71, 32, 0.38)",
     shadow: "rgba(88, 34, 12, 0.42)",
     portrait:
-      "radial-gradient(circle at 52% 22%, rgba(230, 170, 145, 0.4), transparent 24%), linear-gradient(180deg, rgba(169, 71, 32, 0.26), rgba(20, 12, 6, 0.06) 34%, rgba(0, 0, 0, 0.56) 100%)",
+      `radial-gradient(circle at 52% 22%, rgba(230, 170, 145, 0.22), transparent 24%), linear-gradient(180deg, rgba(169, 71, 32, 0.12), rgba(20, 12, 6, 0.04) 34%, rgba(0, 0, 0, 0.52) 100%), url("${withBasePath("/cards/titan.png")}") center top / cover no-repeat`,
   },
   {
     accent: "#207FAA",
     glow: "rgba(32, 127, 170, 0.38)",
     shadow: "rgba(10, 48, 79, 0.4)",
     portrait:
-      "radial-gradient(circle at 50% 24%, rgba(174, 222, 245, 0.42), transparent 24%), linear-gradient(180deg, rgba(32, 127, 170, 0.28), rgba(10, 24, 36, 0.1) 34%, rgba(0, 0, 0, 0.56) 100%)",
+      `radial-gradient(circle at 50% 24%, rgba(174, 222, 245, 0.22), transparent 24%), linear-gradient(180deg, rgba(32, 127, 170, 0.12), rgba(10, 24, 36, 0.05) 34%, rgba(0, 0, 0, 0.52) 100%), url("${withBasePath("/cards/knight.png")}") center top / cover no-repeat`,
   },
   {
     accent: "#388E50",
     glow: "rgba(56, 142, 80, 0.36)",
     shadow: "rgba(18, 70, 40, 0.42)",
     portrait:
-      "radial-gradient(circle at 52% 20%, rgba(194, 236, 181, 0.4), transparent 24%), linear-gradient(180deg, rgba(56, 142, 80, 0.24), rgba(16, 34, 18, 0.08) 34%, rgba(0, 0, 0, 0.56) 100%)",
+      `radial-gradient(circle at 52% 20%, rgba(194, 236, 181, 0.2), transparent 24%), linear-gradient(180deg, rgba(56, 142, 80, 0.1), rgba(16, 34, 18, 0.04) 34%, rgba(0, 0, 0, 0.52) 100%), url("${withBasePath("/cards/healer.png")}") center top / cover no-repeat`,
   },
   {
     accent: "#524C7B",
     glow: "rgba(82, 76, 123, 0.36)",
     shadow: "rgba(39, 28, 73, 0.42)",
     portrait:
-      "radial-gradient(circle at 49% 21%, rgba(214, 205, 249, 0.42), transparent 24%), linear-gradient(180deg, rgba(82, 76, 123, 0.24), rgba(22, 18, 34, 0.08) 34%, rgba(0, 0, 0, 0.56) 100%)",
+      `radial-gradient(circle at 49% 21%, rgba(214, 205, 249, 0.22), transparent 24%), linear-gradient(180deg, rgba(82, 76, 123, 0.1), rgba(22, 18, 34, 0.04) 34%, rgba(0, 0, 0, 0.52) 100%), url("${withBasePath("/cards/mage.png")}") center top / cover no-repeat`,
   },
   {
     accent: "#DB9C00",
     glow: "rgba(219, 156, 0, 0.34)",
     shadow: "rgba(90, 58, 10, 0.42)",
     portrait:
-      "radial-gradient(circle at 53% 18%, rgba(255, 228, 170, 0.4), transparent 24%), linear-gradient(180deg, rgba(219, 156, 0, 0.24), rgba(38, 24, 8, 0.1) 34%, rgba(0, 0, 0, 0.56) 100%)",
+      `radial-gradient(circle at 53% 18%, rgba(255, 228, 170, 0.2), transparent 24%), linear-gradient(180deg, rgba(219, 156, 0, 0.1), rgba(38, 24, 8, 0.04) 34%, rgba(0, 0, 0, 0.52) 100%), url("${withBasePath("/cards/rogue.png")}") center top / cover no-repeat`,
   },
   {
     accent: "#8237A2",
     glow: "rgba(130, 55, 162, 0.34)",
     shadow: "rgba(55, 19, 76, 0.42)",
     portrait:
-      "radial-gradient(circle at 50% 18%, rgba(225, 191, 246, 0.42), transparent 24%), linear-gradient(180deg, rgba(130, 55, 162, 0.24), rgba(28, 14, 34, 0.08) 34%, rgba(0, 0, 0, 0.56) 100%)",
+      `radial-gradient(circle at 50% 18%, rgba(225, 191, 246, 0.22), transparent 24%), linear-gradient(180deg, rgba(130, 55, 162, 0.1), rgba(28, 14, 34, 0.04) 34%, rgba(0, 0, 0, 0.52) 100%), url("${withBasePath("/cards/sorcerer.png")}") center top / cover no-repeat`,
   },
 ] as const;
 type BadgeStep = (typeof BADGE_STEPS)[number];
@@ -127,6 +127,7 @@ export default function Home() {
   const [comparePosition, setComparePosition] = useState(56);
   const [activeComparePairIndex, setActiveComparePairIndex] = useState(0);
   const [activeClassIndex, setActiveClassIndex] = useState(0);
+  const [activeProfessionIndex, setActiveProfessionIndex] = useState(0);
   const [activeRoadmapStepIndex, setActiveRoadmapStepIndex] = useState(0);
   const [email, setEmail] = useState("");
   const [donationAmount, setDonationAmount] = useState("");
@@ -154,6 +155,11 @@ export default function Home() {
   const activeComparePair = COMPARE_PAIRS[activeComparePairIndex] ?? COMPARE_PAIRS[0];
   const activeClass = t.classes.items[activeClassIndex] ?? t.classes.items[0];
   const activeClassTheme = CLASS_THEMES[activeClassIndex % CLASS_THEMES.length];
+  const activeProfession = activeClass.professions[activeProfessionIndex] ?? activeClass.professions[0];
+  const activeProfessionStats =
+    "stats" in activeProfession && Array.isArray(activeProfession.stats)
+      ? activeProfession.stats
+      : activeClass.stats.slice(0, 2);
   const activeRoadmapStep = t.roadmap.steps[activeRoadmapStepIndex] ?? t.roadmap.steps[0];
 
   const scrollToSection = (id: string) => {
@@ -167,10 +173,12 @@ export default function Home() {
 
   const showNextClass = () => {
     setActiveClassIndex((prev) => (prev + 1) % t.classes.items.length);
+    setActiveProfessionIndex(0);
   };
 
   const showPrevClass = () => {
     setActiveClassIndex((prev) => (prev - 1 + t.classes.items.length) % t.classes.items.length);
+    setActiveProfessionIndex(0);
   };
 
   const onClassesTouchStart = (event: TouchEvent<HTMLDivElement>) => {
@@ -530,7 +538,17 @@ export default function Home() {
           <h2 className="panel-ridge-title">{t.classes.title}</h2>
 
           <div className="classes-layout">
-            <div className="classes-stage" role="tablist" aria-label={t.classes.title}>
+            <div
+              className="classes-stage"
+              role="tablist"
+              aria-label={t.classes.title}
+              style={
+                {
+                  "--class-accent": activeClassTheme.accent,
+                  "--class-glow": activeClassTheme.glow,
+                } as CSSProperties
+              }
+            >
               <div className="classes-stack">
               <div className="classes-stack-touch" onTouchStart={onClassesTouchStart} onTouchEnd={onClassesTouchEnd}>
                 {t.classes.items.map((item, index) => {
@@ -544,7 +562,10 @@ export default function Home() {
                       key={item.name}
                       type="button"
                       className={`class-card ${isActive ? "is-active" : ""}`}
-                      onClick={() => setActiveClassIndex(index)}
+                      onClick={() => {
+                        setActiveClassIndex(index);
+                        setActiveProfessionIndex(0);
+                      }}
                       role="tab"
                       aria-selected={isActive}
                       style={
@@ -561,9 +582,6 @@ export default function Home() {
                     >
                       <span className="class-card-frame">
                         <span className="class-card-badge">{String(index + 1).padStart(2, "0")}</span>
-                        <span className="class-card-portrait" aria-hidden="true">
-                          <span className="class-card-sigil">{item.sigil}</span>
-                        </span>
                         <span className="class-card-copy">
                           <span className="class-card-name">{item.name}</span>
                           <span className="class-card-role">{item.role}</span>
@@ -573,6 +591,29 @@ export default function Home() {
                   );
                 })}
               </div>
+              </div>
+              <div className="classes-controls" aria-label="Class navigation">
+                <button type="button" className="class-nav" onClick={showPrevClass} aria-label="Previous class">
+                  <span>‹</span>
+                </button>
+                <div className="class-pairs">
+                  {t.classes.items.map((item, index) => (
+                    <button
+                      key={item.name}
+                      type="button"
+                      className={`class-pair-dot ${index === activeClassIndex ? "is-active" : ""}`}
+                      onClick={() => {
+                        setActiveClassIndex(index);
+                        setActiveProfessionIndex(0);
+                      }}
+                      aria-label={item.name}
+                      title={item.name}
+                    />
+                  ))}
+                </div>
+                <button type="button" className="class-nav" onClick={showNextClass} aria-label="Next class">
+                  <span>›</span>
+                </button>
               </div>
             </div>
 
@@ -587,25 +628,42 @@ export default function Home() {
                 } as CSSProperties
               }
             >
-              <p className="class-detail-kicker">{activeClass.role}</p>
               <h3 className="class-detail-title">{activeClass.name}</h3>
+              <div className="class-profession-switch" role="tablist" aria-label={`${activeClass.name} professions`}>
+                {activeClass.professions.map((profession, index) => (
+                  <button
+                    key={profession.name}
+                    type="button"
+                    className={`class-profession-tab ${index === activeProfessionIndex ? "is-active" : ""}`}
+                    onClick={() => setActiveProfessionIndex(index)}
+                    role="tab"
+                    aria-selected={index === activeProfessionIndex}
+                  >
+                    {profession.name}
+                  </button>
+                ))}
+              </div>
               <p className="class-detail-subtitle">{activeClass.tagline}</p>
               <p className="class-detail-copy">{activeClass.description}</p>
 
+              <div className="class-profession-panel">
+                <h4 className="class-profession-title">{activeProfession.name}</h4>
+                <p className="class-profession-copy">{activeProfession.description}</p>
+                <div className="class-profession-focus">
+                  {activeProfession.focus.map((item) => (
+                    <span key={item} className="class-profession-chip">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
               <div className="class-stat-grid">
-                {activeClass.stats.map((stat) => (
+                {activeProfessionStats.map((stat) => (
                   <div key={stat.label} className="class-stat-card">
                     <span className="class-stat-label">{stat.label}</span>
                     <span className="class-stat-value">{stat.value}</span>
                   </div>
-                ))}
-              </div>
-
-              <div className="class-traits">
-                {activeClass.traits.map((trait) => (
-                  <span key={trait} className="class-trait-chip">
-                    {trait}
-                  </span>
                 ))}
               </div>
             </article>

@@ -128,156 +128,288 @@
                                       "name":  "Titan",
                                       "role":  "Frontline breaker",
                                       "sigil":  "T",
-                                      "tagline":  "An iron wall that shatters formation with a single surge.",
-                                      "description":  "Titan takes the first impact and turns enemy pressure into his own advantage. This class is built for players who want to dominate melee combat, absorb aggression, and lead the party forward through heavy contact, area control, and raw physical force.",
+                                      "tagline":  "A heavy melee warrior built around strength and stamina.",
+                                      "description":  "Titan in Last Chaos relies on brute force and high endurance. The base class uses an axe, and at level 31 it branches into Highlander or Warmaster.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Highlander",
+                                                              "role":  "Axe and maximum physical damage",
+                                                              "description":  "Highlander keeps the axe, gains some of the highest physical attack in the game, multiple AoE attacks, slowing tools, and the Perfect Body self-buff that triggers below 70% HP.",
+                                                              "focus":  [
+                                                                            "Axe",
+                                                                            "AoE damage",
+                                                                            "Perfect Body"
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Warmaster",
+                                                              "role":  "Sword, HP, and group control",
+                                                              "description":  "Warmaster fights with a sword, attacks faster, has the highest base HP and HP regen, and adds AoE pressure, stuns, slows, and party-supporting buffs.",
+                                                              "focus":  [
+                                                                            "Sword",
+                                                                            "Stun and slow",
+                                                                            "Party buffs"
+                                                                        ]
+                                                          }
+                                                      ],
                                       "stats":  [
                                                     {
-                                                        "label":  "Attack",
-                                                        "value":  "S"
+                                                        "label":  "Weapon",
+                                                        "value":  "Axe"
                                                     },
                                                     {
-                                                        "label":  "Defense",
-                                                        "value":  "S+"
+                                                        "label":  "Combat",
+                                                        "value":  "Melee"
                                                     },
                                                     {
-                                                        "label":  "Control",
-                                                        "value":  "A"
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "HL / WM"
                                                     }
                                                 ],
                                       "traits":  [
-                                                     "Two-handed weapons",
-                                                     "Frontline breach",
-                                                     "Area strikes"
+                                                     "Strength and stamina",
+                                                     "Heavy melee",
+                                                     "Level 31 job split"
                                                  ]
                                   },
                                   {
                                       "name":  "Knight",
                                       "role":  "Formation guardian",
                                       "sigil":  "K",
-                                      "tagline":  "A disciplined bastion built on calm precision.",
-                                      "description":  "Knight wins fights through order rather than fury. His strength comes from endurance, controlled tempo, and the ability to hold a line exactly where others collapse. This class fits players who want clean frontline control and the feeling of an unbreakable frame around the group.",
+                                      "tagline":  "A disciplined melee fighter built around defense and tactics.",
+                                      "description":  "Knight in Last Chaos is a durable close-range class focused on protection and combat skill. At level 31 it branches into Royal Knight or Templar Knight.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Royal Knight",
+                                                              "role":  "Dual swords and mobile duelist",
+                                                              "description":  "Royal Knight is known for fighting with two swords, high movement speed, strong attack and defense, enemy stuns, and a party hit-rate buff.",
+                                                              "focus":  [
+                                                                            "Dual swords",
+                                                                            "Stun",
+                                                                            "Hit-rate buff"
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Templar Knight",
+                                                              "role":  "Sword and shield, maximum defense",
+                                                              "description":  "Templar Knight uses sword and shield, has very high defense, many ally-support tools, and lower attack than Royal Knight while adding elemental defense reduction.",
+                                                              "focus":  [
+                                                                            "Sword and shield",
+                                                                            "Party support",
+                                                                            "Elemental debuff"
+                                                                        ]
+                                                          }
+                                                      ],
                                       "stats":  [
                                                     {
-                                                        "label":  "Attack",
-                                                        "value":  "A"
+                                                        "label":  "Weapon",
+                                                        "value":  "Sword"
                                                     },
                                                     {
-                                                        "label":  "Defense",
-                                                        "value":  "S"
+                                                        "label":  "Combat",
+                                                        "value":  "Melee"
                                                     },
                                                     {
-                                                        "label":  "Support",
-                                                        "value":  "A"
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "RK / TK"
                                                     }
                                                 ],
                                       "traits":  [
-                                                     "Sword and shield",
-                                                     "Formation aura",
-                                                     "Duel resilience"
+                                                     "Defense and tactics",
+                                                     "Frontline control",
+                                                     "Level 31 job split"
                                                  ]
                                   },
                                   {
                                       "name":  "Healer",
                                       "role":  "Heart of the party",
                                       "sigil":  "H",
-                                      "tagline":  "The support core no long engagement survives without.",
-                                      "description":  "Healer keeps the group combat-ready and turns chaos into controlled endurance. The strength of the class is not a single strike, but the fact that allies stay in the fight longer than they were ever meant to. It fits players who want influence over the whole battle rather than only personal damage numbers.",
+                                      "tagline":  "A light ranged class that heals and protects through mana.",
+                                      "description":  "Healer in Last Chaos uses mana for healing magic and wears light armor, which makes the class vulnerable in direct combat. Its base weapons are scepter or bow, and at level 31 it branches into Cleric or Archer.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Cleric",
+                                                              "role":  "Strong healing and buffs",
+                                                              "description":  "Cleric is a strong healer and magician who can restore allies, remove debuffs, stun enemies, and provide multiple protective buffs, including EXP and SP support.",
+                                                              "focus":  [
+                                                                            "Healing",
+                                                                            "Debuff removal",
+                                                                            "Buffs"
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Archer",
+                                                              "role":  "Ranged hit-and-run",
+                                                              "description":  "Archer is the agile branch with a bow, built for ranged pressure, multi-target hits, stuns on up to five enemies, silence, slows, and HP/MP support for allies.",
+                                                              "focus":  [
+                                                                            "Bow",
+                                                                            "Stun / slow",
+                                                                            "HP / MP support"
+                                                                        ]
+                                                          }
+                                                      ],
                                       "stats":  [
                                                     {
-                                                        "label":  "Healing",
-                                                        "value":  "S+"
+                                                        "label":  "Weapon",
+                                                        "value":  "Scepter / Bow"
                                                     },
                                                     {
-                                                        "label":  "Support",
-                                                        "value":  "S"
+                                                        "label":  "Combat",
+                                                        "value":  "Ranged"
                                                     },
                                                     {
-                                                        "label":  "Damage",
-                                                        "value":  "B"
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "CL / AR"
                                                     }
                                                 ],
                                       "traits":  [
-                                                     "Group healing",
-                                                     "Party buffs",
-                                                     "Cleanse control"
+                                                     "Healing and protection",
+                                                     "Light armor",
+                                                     "Level 31 job split"
                                                  ]
                                   },
                                   {
                                       "name":  "Mage",
                                       "role":  "Ranged devastation",
                                       "sigil":  "M",
-                                      "tagline":  "Pure elemental force shaped into ideal distance.",
-                                      "description":  "Mage turns the battlefield into a suppression zone. He works from range, blankets the enemy with chained spells, and punishes every mistake in positioning. This class is for players who want extreme damage, pace control, and the unmistakable feeling of overwhelming magical superiority.",
+                                      "tagline":  "A ranged magical class built around mana damage and curses.",
+                                      "description":  "Mage in Last Chaos studies the Dark Arts and deals heavy magical damage, but has weak physical defense. Its base weapons are wand or staff, and at level 31 it branches into Witch or Wizard.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Witch",
+                                                              "role":  "Curses and control",
+                                                              "description":  "Witch uses a wand and leans into curses, petrify, blind, sleep, buff removal, and HP drain. The class guides describe it as the debuff-heavy branch with elemental defense reduction.",
+                                                              "focus":  [
+                                                                            "Curses",
+                                                                            "Petrify / sleep",
+                                                                            "Buff removal"
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Wizard",
+                                                              "role":  "Staff and heavy AoE",
+                                                              "description":  "Wizard uses a staff for higher per-hit magical power, several elemental AoE attacks, and a dedicated mana recovery skill. It is the stronger mass-damage branch.",
+                                                              "focus":  [
+                                                                            "Staff",
+                                                                            "Elemental AoE",
+                                                                            "Mana recovery"
+                                                                        ]
+                                                          }
+                                                      ],
                                       "stats":  [
                                                     {
-                                                        "label":  "Damage",
-                                                        "value":  "S+"
+                                                        "label":  "Weapon",
+                                                        "value":  "Wand / Staff"
                                                     },
                                                     {
-                                                        "label":  "Control",
-                                                        "value":  "A"
+                                                        "label":  "Combat",
+                                                        "value":  "Ranged"
                                                     },
                                                     {
-                                                        "label":  "Defense",
-                                                        "value":  "C"
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "WT / WZ"
                                                     }
                                                 ],
                                       "traits":  [
-                                                     "Elemental volleys",
-                                                     "Area pressure",
-                                                     "Range control"
+                                                     "High magic damage",
+                                                     "Low defense",
+                                                     "Level 31 job split"
                                                  ]
                                   },
                                   {
                                       "name":  "Rogue",
                                       "role":  "Backline assassin",
                                       "sigil":  "R",
-                                      "tagline":  "Speed, critical bursts, and disappearance before the answer arrives.",
-                                      "description":  "Rogue operates where the fight is already splitting apart. She dives into the weak point, removes a priority target, and vanishes before the enemy fully understands what happened. This class is made for aggressive mobile play where timing, positioning, and precision decide everything.",
+                                      "tagline":  "A fast physical class built around camouflage and invisibility.",
+                                      "description":  "Rogue in Last Chaos hides, flanks, and attacks with a crossbow or daggers. It is a nimble class with fast combat pace that branches into Assassin or Ranger at level 31.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Assassin",
+                                                              "role":  "Daggers and target elimination",
+                                                              "description":  "Assassin uses two daggers, can throw them from stealth, snare targets, feign death, and drop monster aggro. The guides position it as the direct single-target branch.",
+                                                              "focus":  [
+                                                                            "Daggers",
+                                                                            "Snare",
+                                                                            "Feign death"
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Ranger",
+                                                              "role":  "Crossbow and high accuracy",
+                                                              "description":  "Ranger uses a crossbow to attack from safer range, has very high hit rate, and adds stuns, snares, invisibility, and self-buffs for attack and accuracy.",
+                                                              "focus":  [
+                                                                            "Crossbow",
+                                                                            "High hit rate",
+                                                                            "Stun / invisibility"
+                                                                        ]
+                                                          }
+                                                      ],
                                       "stats":  [
                                                     {
-                                                        "label":  "Attack",
-                                                        "value":  "S"
+                                                        "label":  "Weapon",
+                                                        "value":  "Daggers / Crossbow"
                                                     },
                                                     {
-                                                        "label":  "Mobility",
-                                                        "value":  "S+"
+                                                        "label":  "Combat",
+                                                        "value":  "Melee / Ranged"
                                                     },
                                                     {
-                                                        "label":  "Survival",
-                                                        "value":  "B"
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "AS / RN"
                                                     }
                                                 ],
                                       "traits":  [
-                                                     "Critical bursts",
-                                                     "High evasion",
-                                                     "Backline pressure"
+                                                     "Camouflage",
+                                                     "High speed",
+                                                     "Level 31 job split"
                                                  ]
                                   },
                                   {
                                       "name":  "Sorcerer",
                                       "role":  "Dark ritualist",
                                       "sigil":  "S",
-                                      "tagline":  "Curses, attrition, and pressure that never lets go.",
-                                      "description":  "Sorcerer plays the long game and wins through gradual destruction. He weakens, binds, drains, and crushes the enemy not just with damage, but with inevitability. This class is built for players who prefer layered control, a darker tone, and methodical domination over the entire field.",
+                                      "tagline":  "A High Elf elemental class built around summons and stance choice.",
+                                      "description":  "Sorcerer in Last Chaos summons elementals and uses the power of the four elements to attack. The class can operate at close or long range with scythe or fallarm, then branches into Elementalist or Specialist at level 31.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Elementalist",
+                                                              "role":  "Spirits and fallarm",
+                                                              "description":  "Elementalist keeps the summon-oriented playstyle, uses a fallarm, and fights through spirits, AoE, and elemental attacks. The class guides call it one of the hardest jobs in LC.",
+                                                              "focus":  [
+                                                                            "Elementals",
+                                                                            "Fallarm",
+                                                                            "AoE"
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Specialist",
+                                                              "role":  "Transformations and scythe",
+                                                              "description":  "Specialist gives up elementals in exchange for transformations into a knight form or a demon form. It is known for high evasion, strong critical rate, and fast attacks.",
+                                                              "focus":  [
+                                                                            "Knight form",
+                                                                            "Demon form",
+                                                                            "Scythe"
+                                                                        ]
+                                                          }
+                                                      ],
                                       "stats":  [
                                                     {
-                                                        "label":  "Curses",
-                                                        "value":  "S"
+                                                        "label":  "Weapon",
+                                                        "value":  "Scythe / Fallarm"
                                                     },
                                                     {
-                                                        "label":  "Control",
-                                                        "value":  "S"
+                                                        "label":  "Combat",
+                                                        "value":  "Melee / Ranged"
                                                     },
                                                     {
-                                                        "label":  "Burst",
-                                                        "value":  "B+"
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "EL / SP"
                                                     }
                                                 ],
                                       "traits":  [
-                                                     "Damage over time",
-                                                     "Enemy debuffs",
-                                                     "Dark rituals"
+                                                     "Elements and summons",
+                                                     "Flexible range",
+                                                     "Level 31 job split"
                                                  ]
                                   }
                               ]
