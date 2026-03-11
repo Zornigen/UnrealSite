@@ -122,6 +122,12 @@ const CONTENT_THEMES = [
   createContentTheme("#524C7B", "rgba(82, 76, 123, 0.36)"),
   createContentTheme("#388E50", "rgba(56, 142, 80, 0.36)"),
 ] as const;
+const MEDIA_THEMES = [
+  { accent: "#83C8FF", glow: "rgba(83, 182, 255, 0.34)" },
+  { accent: "#A94720", glow: "rgba(169, 71, 32, 0.34)" },
+  { accent: "#8237A2", glow: "rgba(130, 55, 162, 0.32)" },
+  { accent: "#388E50", glow: "rgba(56, 142, 80, 0.32)" },
+] as const;
 type BadgeStep = (typeof BADGE_STEPS)[number];
 
 function getTimeParts(diffMs: number, labels: string[]) {
@@ -179,6 +185,7 @@ export default function Home() {
   const [activeContentIndex, setActiveContentIndex] = useState(0);
   const [contentProgress, setContentProgress] = useState(0);
   const [activeRoadmapStepIndex, setActiveRoadmapStepIndex] = useState(0);
+  const [activeMediaIndex, setActiveMediaIndex] = useState(0);
   const [email, setEmail] = useState("");
   const [donationAmount, setDonationAmount] = useState("");
   const [confirmCode, setConfirmCode] = useState("");
@@ -219,7 +226,12 @@ export default function Home() {
   const activeContent = t.content.items[activeContentIndex] ?? t.content.items[0];
   const activeContentTheme = CONTENT_THEMES[activeContentIndex % CONTENT_THEMES.length];
   const activeRoadmapStep = t.roadmap.steps[activeRoadmapStepIndex] ?? t.roadmap.steps[0];
+  const activeMediaMode = t.media.modes[activeMediaIndex] ?? t.media.modes[0];
+  const activeMediaTheme = MEDIA_THEMES[activeMediaIndex % MEDIA_THEMES.length];
   const displaySupportCount = locale === "ru" ? supportCount : Math.floor(supportCount / USD_EXCHANGE_RATE);
+  const mediaFeatureCount = activeMediaIndex === 1 ? 3 : 2;
+  const mediaSideItems = activeMediaMode.items.slice(0, mediaFeatureCount);
+  const mediaGalleryItems = activeMediaMode.items.slice(mediaFeatureCount);
 
   const scrollToSection = (id: string) => {
     const node = document.getElementById(id);
@@ -1078,14 +1090,101 @@ export default function Home() {
       </section>
 
       <section id="media" className="landing-section section-enter">
-        <div className="landing-shell section-panel split-panel media-panel">
-          <h2 className="panel-ridge-title">{t.media.title}</h2>
-          <div className="media-grid">
-            {t.media.items.map((item) => (
-              <article key={item} className="media-card">
-                <p>{item}</p>
-              </article>
+        <div
+          className="landing-shell section-panel split-panel media-panel media-stage"
+          style={
+            {
+              "--media-accent": activeMediaTheme.accent,
+              "--media-glow": activeMediaTheme.glow,
+            } as CSSProperties
+          }
+        >
+          <div className="media-ridge-nav" aria-label={t.media.title}>
+            {t.media.modes.map((mode, index) => (
+              <button
+                key={mode.name}
+                type="button"
+                className={`media-ridge-word ${index === activeMediaIndex ? "is-active" : ""}`}
+                onClick={() => setActiveMediaIndex(index)}
+                aria-pressed={index === activeMediaIndex}
+              >
+                {mode.name}
+              </button>
             ))}
+          </div>
+
+          <div className={`media-stage-panel media-layout-${activeMediaIndex + 1}`}>
+            <article
+              className="media-hero-card"
+              style={
+                {
+                  "--media-hero-image": `linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.38)), url("${withBasePath(activeMediaMode.hero.image)}")`,
+                } as CSSProperties
+              }
+            >
+              <div className="media-hero-copy">
+                <p className="media-hero-kicker">{activeMediaMode.hero.eyebrow}</p>
+                <h3 className="media-hero-title">{activeMediaMode.hero.title}</h3>
+                <p className="media-hero-text">{activeMediaMode.hero.copy}</p>
+              </div>
+              <div className="media-hero-meta">
+                <span className="media-hero-chip">{activeMediaMode.hero.meta}</span>
+                <button type="button" className="media-hero-action">
+                  {activeMediaMode.hero.action}
+                </button>
+              </div>
+            </article>
+
+            <div className="media-feature-list">
+              {mediaSideItems.map((item, index) => (
+                <article
+                  key={`${activeMediaMode.name}-feature-${item.title}`}
+                  className={`media-feature-card media-feature-${activeMediaIndex + 1}-${index + 1}`}
+                  style={
+                    {
+                      "--media-card-image": `linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.44)), url("${withBasePath(item.image)}")`,
+                    } as CSSProperties
+                  }
+                >
+                  <div className="media-side-overlay" />
+                  <div className="media-side-copy">
+                    <p className="media-side-title">{item.title}</p>
+                    <p className="media-side-meta">{item.meta}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            {mediaGalleryItems.length > 0 ? (
+              <div className={`media-side-list media-gallery-${activeMediaIndex + 1}`}>
+                {mediaGalleryItems.map((item, index) => (
+                  <article
+                    key={`${activeMediaMode.name}-${item.title}`}
+                    className={`media-side-card media-side-${activeMediaIndex + 1}-${index + 1}`}
+                    style={
+                      {
+                        "--media-card-image": `linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.44)), url("${withBasePath(item.image)}")`,
+                      } as CSSProperties
+                    }
+                  >
+                    <div className="media-side-overlay" />
+                    <div className="media-side-copy">
+                      <p className="media-side-title">{item.title}</p>
+                      <p className="media-side-meta">{item.meta}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          <div className="media-status-line" aria-hidden="true">
+            <span className="media-status-index">
+              {String(activeMediaIndex + 1).padStart(2, "0")} / {String(t.media.modes.length).padStart(2, "0")}
+            </span>
+            <span className="media-status-label">{t.media.counterLabel}</span>
+            <span className="media-status-name">{activeMediaMode.name}</span>
+            <span className="media-status-descriptor">{activeMediaMode.descriptor}</span>
           </div>
         </div>
       </section>
