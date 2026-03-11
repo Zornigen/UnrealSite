@@ -36,7 +36,7 @@ const beaufort = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Serious Engine 1.5 -> Unreal Engine 5.7",
+  title: "Unreal Chaos",
   description: "Кинематографичный лендинг о переходе проекта на Unreal Engine 5.7",
 };
 

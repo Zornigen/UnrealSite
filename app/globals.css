@@ -867,8 +867,27 @@ body::-webkit-scrollbar {
 .email-form {
   margin: 1rem auto 0;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.42rem;
   max-width: 34rem;
+}
+
+.field-stack {
+  display: grid;
+  gap: 0.42rem;
+  align-content: start;
+}
+
+.prereg-panel .field-stack,
+.support-form .field-stack {
+  position: relative;
+  padding-bottom: 0.72rem;
+}
+
+.prereg-panel .field-message,
+.support-form .field-message {
+  position: absolute;
+  top: calc(100% - 0.44rem);
+  left: 0;
 }
 
 .email-input {
@@ -881,6 +900,11 @@ body::-webkit-scrollbar {
   padding-inline: 1rem;
   outline: none;
   font-family: inherit;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
 }
 
 .email-input::placeholder {
@@ -889,6 +913,63 @@ body::-webkit-scrollbar {
 
 .email-input:focus {
   border-color: var(--accent);
+  background: rgba(2, 8, 14, 0.54);
+  box-shadow:
+    0 0 0 1px rgba(130, 195, 255, 0.22),
+    0 0 20px rgba(47, 168, 255, 0.14);
+}
+
+.email-input.is-valid {
+  border-color: rgba(93, 205, 134, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(93, 205, 134, 0.16),
+    0 0 18px rgba(56, 142, 80, 0.12);
+}
+
+.email-input.is-invalid {
+  border-color: rgba(238, 108, 93, 0.72);
+  background: rgba(22, 6, 8, 0.46);
+  box-shadow:
+    0 0 0 1px rgba(238, 108, 93, 0.16),
+    0 0 18px rgba(191, 64, 48, 0.16);
+}
+
+.field-message {
+  min-height: 1rem;
+  color: rgba(230, 238, 245, 0.42);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(-0.15rem);
+  transition: opacity 180ms ease, transform 180ms ease, color 180ms ease;
+}
+
+.field-message.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.field-message.is-error {
+  color: rgba(255, 157, 147, 0.92);
+}
+
+.field-message.is-success {
+  color: rgba(157, 230, 178, 0.9);
+}
+
+.cta-primary:disabled,
+.cta-secondary:disabled {
+  cursor: wait;
+  opacity: 0.86;
+  transform: none;
+}
+
+.cta-primary:disabled::before,
+.cta-primary:disabled::after,
+.cta-secondary:disabled::before,
+.cta-secondary:disabled::after {
+  display: none;
 }
 
 .cta-inline {
@@ -2111,7 +2192,7 @@ body::-webkit-scrollbar {
   .prereg-panel .email-form {
     grid-template-columns: minmax(0, 1fr) auto;
     max-width: 34.5rem;
-    align-items: center;
+    align-items: start;
   }
 
   .prereg-panel .cta-inline {
@@ -2142,30 +2223,154 @@ body::-webkit-scrollbar {
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: rgba(0, 0, 0, 0.72);
+  background:
+    radial-gradient(circle at 50% 26%, rgba(68, 164, 228, 0.1), transparent 24%),
+    rgba(0, 0, 0, 0.8);
   display: grid;
   place-items: center;
   padding: 1rem;
+  backdrop-filter: blur(12px);
 }
 
 .popup-card {
-  width: min(100%, 28rem);
+  width: min(100%, 30rem);
+  padding-top: 2.65rem;
+  overflow: visible;
+}
+
+.popup-ridge-title {
+  font-size: clamp(1.35rem, 4vw, 2.2rem);
+}
+
+.popup-body {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.popup-copy {
+  margin-top: 0.15rem;
+  max-width: 24rem;
+}
+
+.popup-note {
+  margin: -0.15rem 0 0;
+  padding: 0.72rem 0.88rem;
+  border-radius: calc(var(--radius-main) - 0.02rem);
+  border: 1px solid rgba(111, 208, 255, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12)),
+    rgba(8, 14, 22, 0.68);
+  color: rgba(226, 235, 244, 0.82);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 18px rgba(47, 168, 255, 0.08);
+}
+
+.popup-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 14%, rgba(65, 154, 214, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 22%);
+  pointer-events: none;
+}
+
+.popup-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 1.2rem -1px 1.2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(111, 208, 255, 0.38), transparent);
+  opacity: 0.72;
+  pointer-events: none;
 }
 
 .popup-form {
-  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.popup-success {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.popup-success-copy {
+  margin: 0;
+  color: rgba(238, 244, 249, 0.88);
+  font-size: 1rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.popup-success-copy strong {
+  color: #f6fbff;
+}
+
+.popup-success-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.95rem 1rem;
+  border-radius: calc(var(--radius-main) - 0.02rem);
+  border: 1px solid rgba(111, 208, 255, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.14)),
+    rgba(8, 14, 22, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 20px rgba(47, 168, 255, 0.08);
+}
+
+.popup-success-label {
+  color: rgba(211, 225, 237, 0.56);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.popup-success-value {
+  color: #f1f7fd;
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.popup-success-value-small {
+  font-size: 0.96rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.popup-actions {
   display: grid;
   gap: 0.5rem;
 }
 
 .popup-close {
   width: 100%;
-  margin-top: 0.55rem;
   border: 0;
   background: transparent;
   color: rgba(255, 255, 255, 0.76);
   font-family: inherit;
   cursor: pointer;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-main);
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.popup-close:hover,
+.popup-close:focus-visible {
+  color: #edf6fd;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 @media (min-width: 700px) {
@@ -2484,6 +2689,26 @@ body::-webkit-scrollbar {
 
   .content-scene {
     min-height: 25.5rem;
+  }
+
+  .email-form {
+    gap: 0.34rem;
+  }
+
+  .prereg-panel .field-stack,
+  .support-form .field-stack {
+    padding-bottom: 0.9rem;
+  }
+
+  .prereg-panel .field-message,
+  .support-form .field-message {
+    top: calc(100% - 0.5rem);
+    font-size: 0.68rem;
+  }
+
+  .prereg-panel .cta-inline,
+  .support-form .cta-inline {
+    margin-top: 0.5rem;
   }
 
   .content-scene-grid {

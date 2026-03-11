@@ -102,13 +102,24 @@
                    "kicker":  "Registered players",
                    "emailPlaceholder":  "Enter email",
                    "submit":  "Submit",
-                   "rewards":  "Each pre-registered nickname will receive the \"One of the First\" title after reaching level 50"
+                   "pending":  "Checking...",
+                   "rewards":  "Each pre-registered nickname will receive the \"One of the First\" title after reaching level 50",
+                   "errors":  {
+                                  "required":  "Enter an email to continue.",
+                                  "invalid":  "Enter a valid email address."
+                              }
                },
     "support":  {
                     "cta":  "Gratitude",
-                    "kicker":  "Rubles donated",
+                    "kicker":  "Dollars donated",
                     "amountPlaceholder":  "Enter amount",
-                    "description":  "All donated funds will be spent on the marketing campaign."
+                    "pending":  "Sending...",
+                    "description":  "All donated funds will be spent on the marketing campaign.",
+                    "success":  "Amount ${amount} recorded. A real payment flow can be connected next.",
+                    "errors":  {
+                                   "required":  "Enter a donation amount.",
+                                   "invalid":  "The minimum donation amount is $10."
+                               }
                 },
     "participants":  {
                          "title":  "Participants"
@@ -698,9 +709,25 @@
     "popup":  {
                   "title":  "Confirmation",
                   "sentPrefix":  "Code sent to",
+                  "bindingNote":  "Your pre-registration nickname will only be available on the account registered with this email. Only one account and one nickname can be registered per email. The list of pre-registered nicknames will be reset on January 1, 2027.",
                   "codePlaceholder":  "Confirmation code",
                   "nicknamePlaceholder":  "Preferred nickname",
+                  "codeHint":  "Use the code from the email. Right now we accept 4-8 digits.",
+                  "nicknameHint":  "3 to 16 characters: letters, numbers, or underscores.",
+                  "pending":  "Confirming...",
+                  "successTitle":  "Nickname Reserved",
+                  "successPrefix":  "Nickname",
+                  "successMiddle":  "has been pre-registered for",
+                  "successNicknameLabel":  "Nickname",
+                  "successEmailLabel":  "Email",
+                  "successClose":  "Done",
                   "confirm":  "Confirm",
-                  "close":  "Close"
+                  "close":  "Close",
+                  "errors":  {
+                                 "codeRequired":  "Enter the confirmation code.",
+                                 "codeInvalid":  "The code must contain 4 to 8 digits.",
+                                 "nicknameRequired":  "Enter a nickname.",
+                                 "nicknameInvalid":  "Nickname must be 3-16 characters with no spaces or special symbols."
+                             }
               }
 }

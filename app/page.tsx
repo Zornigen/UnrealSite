@@ -6,12 +6,23 @@ import ru from "@/locales/ru.json";
 
 const translations = { en, ru };
 type Locale = keyof typeof translations;
+type FormErrors = {
+  email?: string;
+  amount?: string;
+  code?: string;
+  nickname?: string;
+};
+type PopupSuccessState = {
+  email: string;
+  nickname: string;
+} | null;
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const withBasePath = (path: string) => `${basePath}${path}`;
 
 const RELEASE_DATE = new Date("2026-08-16T16:00:00+03:00");
 const CONTENT_AUTOPLAY_MS = 6800;
+const USD_EXCHANGE_RATE = 80;
 const BADGE_STEPS = ["old", "strike", "morph", "new", "new"] as const;
 const INITIAL_PARTICIPANTS = [
   "AsterVox",
@@ -127,6 +138,24 @@ function getTimeParts(diffMs: number, labels: string[]) {
   }));
 }
 
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function isValidAmount(value: string, locale: Locale) {
+  if (!/^\d+$/.test(value)) return false;
+  const numericValue = Number(value);
+  return locale === "ru" ? numericValue >= 500 : numericValue >= 10;
+}
+
+function isValidConfirmCode(value: string) {
+  return /^\d{4,8}$/.test(value);
+}
+
+function isValidNickname(value: string) {
+  return /^[A-Za-zА-Яа-яЁё0-9_]{3,16}$/.test(value);
+}
+
 export default function Home() {
   const [locale, setLocale] = useState<Locale>(() => {
     if (typeof window === "undefined") return "ru";
@@ -155,6 +184,12 @@ export default function Home() {
   const [confirmCode, setConfirmCode] = useState("");
   const [nickname, setNickname] = useState("");
   const [showConfirmPopup, setShowConfirmPopup] = useState(false);
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
+  const [preregPending, setPreregPending] = useState(false);
+  const [supportPending, setSupportPending] = useState(false);
+  const [popupPending, setPopupPending] = useState(false);
+  const [popupSuccess, setPopupSuccess] = useState<PopupSuccessState>(null);
+  const [supportNotice, setSupportNotice] = useState("");
   const [badgeStepIndex, setBadgeStepIndex] = useState(0);
   const [badgePairIndex, setBadgePairIndex] = useState(0);
   const scrollLockRef = useRef(false);
@@ -184,6 +219,7 @@ export default function Home() {
   const activeContent = t.content.items[activeContentIndex] ?? t.content.items[0];
   const activeContentTheme = CONTENT_THEMES[activeContentIndex % CONTENT_THEMES.length];
   const activeRoadmapStep = t.roadmap.steps[activeRoadmapStepIndex] ?? t.roadmap.steps[0];
+  const displaySupportCount = locale === "ru" ? supportCount : Math.floor(supportCount / USD_EXCHANGE_RATE);
 
   const scrollToSection = (id: string) => {
     const node = document.getElementById(id);
@@ -207,6 +243,15 @@ export default function Home() {
   const selectContent = (index: number) => {
     setActiveContentIndex(index);
     setContentProgress(0);
+  };
+
+  const closeConfirmPopup = () => {
+    setShowConfirmPopup(false);
+    setPopupPending(false);
+    setPopupSuccess(null);
+    setConfirmCode("");
+    setNickname("");
+    setFormErrors((prev) => ({ ...prev, code: undefined, nickname: undefined }));
   };
 
   const onClassesTouchStart = (event: TouchEvent<HTMLDivElement>) => {
@@ -366,22 +411,109 @@ export default function Home() {
     return () => window.removeEventListener("wheel", onWheel);
   }, [activeSection, t.sections]);
 
-  const onPreregSubmit = (event: FormEvent) => {
+  useEffect(() => {
+    if (!showConfirmPopup) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeConfirmPopup();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [showConfirmPopup]);
+
+  const onPreregSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    if (!email.trim()) return;
+
+    const safeEmail = email.trim();
+    if (!safeEmail) {
+      setFormErrors((prev) => ({ ...prev, email: t.prereg.errors.required }));
+      return;
+    }
+
+    if (!isValidEmail(safeEmail)) {
+      setFormErrors((prev) => ({ ...prev, email: t.prereg.errors.invalid }));
+      return;
+    }
+
+    setPreregPending(true);
+    setPopupSuccess(null);
+    setFormErrors((prev) => ({ ...prev, email: undefined }));
+    await new Promise((resolve) => window.setTimeout(resolve, 520));
+    setPreregPending(false);
     setShowConfirmPopup(true);
   };
 
-  const onConfirmPrereg = (event: FormEvent) => {
+  const onSupportSubmit = async (event: FormEvent) => {
     event.preventDefault();
+
+    if (!donationAmount.trim()) {
+      setFormErrors((prev) => ({ ...prev, amount: t.support.errors.required }));
+      setSupportNotice("");
+      return;
+    }
+
+    if (!isValidAmount(donationAmount, locale)) {
+      setFormErrors((prev) => ({ ...prev, amount: t.support.errors.invalid }));
+      setSupportNotice("");
+      return;
+    }
+
+    setSupportPending(true);
+    setFormErrors((prev) => ({ ...prev, amount: undefined }));
+    await new Promise((resolve) => window.setTimeout(resolve, 520));
+    setSupportPending(false);
+    setSupportNotice(
+      t.support.success.replace(
+        "{amount}",
+        Number(donationAmount).toLocaleString(locale === "ru" ? "ru-RU" : "en-US")
+      )
+    );
+    setDonationAmount("");
+  };
+
+  const onConfirmPrereg = async (event: FormEvent) => {
+    event.preventDefault();
+    const safeCode = confirmCode.trim();
     const safeNickname = nickname.trim();
-    if (!safeNickname) return;
+    const nextErrors: FormErrors = {};
+
+    if (!safeCode) {
+      nextErrors.code = t.popup.errors.codeRequired;
+    } else if (!isValidConfirmCode(safeCode)) {
+      nextErrors.code = t.popup.errors.codeInvalid;
+    }
+
+    if (!safeNickname) {
+      nextErrors.nickname = t.popup.errors.nicknameRequired;
+    } else if (!isValidNickname(safeNickname)) {
+      nextErrors.nickname = t.popup.errors.nicknameInvalid;
+    }
+
+    if (nextErrors.code || nextErrors.nickname) {
+      setFormErrors((prev) => ({ ...prev, ...nextErrors }));
+      return;
+    }
+
+    setPopupPending(true);
+    setFormErrors((prev) => ({ ...prev, code: undefined, nickname: undefined }));
+    await new Promise((resolve) => window.setTimeout(resolve, 560));
 
     setParticipants((prev) => [safeNickname, ...prev.filter((item) => item.toLowerCase() !== safeNickname.toLowerCase())]);
-    setShowConfirmPopup(false);
-    setEmail("");
+    setPopupPending(false);
+    setPopupSuccess({ email: email.trim(), nickname: safeNickname });
     setConfirmCode("");
     setNickname("");
+    setFormErrors((prev) => ({ ...prev, code: undefined, nickname: undefined }));
   };
 
   const participantTape = [...participants, ...participants];
@@ -860,15 +992,29 @@ export default function Home() {
               <p className="kicker">{t.prereg.kicker}</p>
 
               <form onSubmit={onPreregSubmit} className="email-form">
-                <input
-                  type="email"
-                  className="email-input"
-                  placeholder={t.prereg.emailPlaceholder}
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                />
-                <button type="submit" className="cta-primary cta-inline">
-                  {t.prereg.submit}
+                <div className="field-stack">
+                  <input
+                    type="email"
+                    className={`email-input ${formErrors.email ? "is-invalid" : email.trim() && isValidEmail(email.trim()) ? "is-valid" : ""}`}
+                    placeholder={t.prereg.emailPlaceholder}
+                    value={email}
+                    onChange={(event) => {
+                      const nextValue = event.target.value;
+                      setEmail(nextValue);
+                      setFormErrors((prev) => ({
+                        ...prev,
+                        email: !nextValue.trim() || isValidEmail(nextValue.trim()) ? undefined : t.prereg.errors.invalid,
+                      }));
+                    }}
+                    aria-invalid={Boolean(formErrors.email)}
+                    aria-describedby={formErrors.email ? "prereg-email-error" : undefined}
+                  />
+                  <span id="prereg-email-error" className={`field-message ${formErrors.email ? "is-visible is-error" : ""}`}>
+                    {formErrors.email}
+                  </span>
+                </div>
+                <button type="submit" className="cta-primary cta-inline" disabled={preregPending}>
+                  {preregPending ? t.prereg.pending : t.prereg.submit}
                 </button>
               </form>
 
@@ -879,19 +1025,37 @@ export default function Home() {
           <div id="support" className="section-panel split-panel support-panel">
             <h2 className="panel-ridge-title">{t.support.cta}</h2>
             <div className="support-block">
-              <p className="big-number money">{supportCount.toLocaleString(locale === "ru" ? "ru-RU" : "en-US")}</p>
+              <p className="big-number money">{displaySupportCount.toLocaleString(locale === "ru" ? "ru-RU" : "en-US")}</p>
               <p className="kicker">{t.support.kicker}</p>
-              <form className="email-form support-form">
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  className="email-input"
-                  placeholder={t.support.amountPlaceholder}
-                  value={donationAmount}
-                  onChange={(event) => setDonationAmount(event.target.value.replace(/[^\d]/g, ""))}
-                />
-                <button type="submit" className="cta-primary cta-inline wide">
-                  {t.support.cta}
+              <form className="email-form support-form" onSubmit={onSupportSubmit}>
+                <div className="field-stack">
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    className={`email-input ${formErrors.amount ? "is-invalid" : donationAmount && isValidAmount(donationAmount, locale) ? "is-valid" : ""}`}
+                    placeholder={t.support.amountPlaceholder}
+                    value={donationAmount}
+                    onChange={(event) => {
+                      const nextValue = event.target.value.replace(/[^\d]/g, "");
+                      setDonationAmount(nextValue);
+                      setSupportNotice("");
+                      setFormErrors((prev) => ({
+                        ...prev,
+                        amount: !nextValue || isValidAmount(nextValue, locale) ? undefined : t.support.errors.invalid,
+                      }));
+                    }}
+                    aria-invalid={Boolean(formErrors.amount)}
+                    aria-describedby={formErrors.amount ? "support-amount-error" : supportNotice ? "support-amount-note" : undefined}
+                  />
+                  <span id="support-amount-error" className={`field-message ${formErrors.amount ? "is-visible is-error" : ""}`}>
+                    {formErrors.amount}
+                  </span>
+                  <span id="support-amount-note" className={`field-message ${supportNotice ? "is-visible is-success" : ""}`}>
+                    {supportNotice}
+                  </span>
+                </div>
+                <button type="submit" className="cta-primary cta-inline wide" disabled={supportPending}>
+                  {supportPending ? t.support.pending : t.support.cta}
                 </button>
               </form>
               <p className="muted-copy">{t.support.description}</p>
@@ -927,34 +1091,99 @@ export default function Home() {
       </section>
 
       {showConfirmPopup && (
-        <div className="popup-backdrop">
-          <div className="popup-card section-panel">
-            <h3 className="section-title small">{t.popup.title}</h3>
-            <p className="muted-copy center">
-              {t.popup.sentPrefix} {email}
-            </p>
-            <form className="popup-form" onSubmit={onConfirmPrereg}>
-              <input
-                type="text"
-                className="email-input"
-                placeholder={t.popup.codePlaceholder}
-                value={confirmCode}
-                onChange={(event) => setConfirmCode(event.target.value)}
-              />
-              <input
-                type="text"
-                className="email-input"
-                placeholder={t.popup.nicknamePlaceholder}
-                value={nickname}
-                onChange={(event) => setNickname(event.target.value)}
-              />
-              <button type="submit" className="cta-primary cta-inline">
-                {t.popup.confirm}
-              </button>
-            </form>
-            <button type="button" className="popup-close" onClick={() => setShowConfirmPopup(false)}>
-              {t.popup.close}
-            </button>
+        <div className="popup-backdrop" onClick={closeConfirmPopup}>
+          <div className="popup-card section-panel split-panel" onClick={(event) => event.stopPropagation()}>
+            <h3 className="panel-ridge-title popup-ridge-title">
+              {popupSuccess ? t.popup.successTitle : t.popup.title}
+            </h3>
+            <div className="popup-body">
+              {popupSuccess ? (
+                <div className="popup-success">
+                  <p className="popup-success-copy">
+                    {t.popup.successPrefix} <strong>{popupSuccess.nickname}</strong> {t.popup.successMiddle}{" "}
+                    <strong>{popupSuccess.email}</strong>.
+                  </p>
+                  <p className="popup-note">{t.popup.bindingNote}</p>
+                  <div className="popup-success-card">
+                    <span className="popup-success-label">{t.popup.successNicknameLabel}</span>
+                    <span className="popup-success-value">{popupSuccess.nickname}</span>
+                    <span className="popup-success-label">{t.popup.successEmailLabel}</span>
+                    <span className="popup-success-value popup-success-value-small">{popupSuccess.email}</span>
+                  </div>
+                  <div className="popup-actions">
+                    <button type="button" className="cta-primary cta-inline wide" onClick={closeConfirmPopup}>
+                      {t.popup.successClose}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <p className="muted-copy center popup-copy">
+                    {t.popup.sentPrefix} {email}
+                  </p>
+                  <p className="popup-note">{t.popup.bindingNote}</p>
+                  <form className="popup-form" onSubmit={onConfirmPrereg}>
+                    <div className="field-stack">
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        className={`email-input ${formErrors.code ? "is-invalid" : confirmCode && isValidConfirmCode(confirmCode.trim()) ? "is-valid" : ""}`}
+                        placeholder={t.popup.codePlaceholder}
+                        value={confirmCode}
+                        onChange={(event) => {
+                          const nextValue = event.target.value.replace(/[^\d]/g, "");
+                          setConfirmCode(nextValue);
+                          setFormErrors((prev) => ({
+                            ...prev,
+                            code: !nextValue || isValidConfirmCode(nextValue) ? undefined : t.popup.errors.codeInvalid,
+                          }));
+                        }}
+                        aria-invalid={Boolean(formErrors.code)}
+                        aria-describedby={formErrors.code ? "confirm-code-error" : "confirm-code-hint"}
+                      />
+                      <span id="confirm-code-hint" className="field-message is-visible">
+                        {t.popup.codeHint}
+                      </span>
+                      <span id="confirm-code-error" className={`field-message ${formErrors.code ? "is-visible is-error" : ""}`}>
+                        {formErrors.code}
+                      </span>
+                    </div>
+                    <div className="field-stack">
+                      <input
+                        type="text"
+                        className={`email-input ${formErrors.nickname ? "is-invalid" : nickname && isValidNickname(nickname.trim()) ? "is-valid" : ""}`}
+                        placeholder={t.popup.nicknamePlaceholder}
+                        value={nickname}
+                        onChange={(event) => {
+                          const nextValue = event.target.value;
+                          setNickname(nextValue);
+                          setFormErrors((prev) => ({
+                            ...prev,
+                            nickname: !nextValue.trim() || isValidNickname(nextValue.trim()) ? undefined : t.popup.errors.nicknameInvalid,
+                          }));
+                        }}
+                        aria-invalid={Boolean(formErrors.nickname)}
+                        aria-describedby={formErrors.nickname ? "nickname-error" : "nickname-hint"}
+                      />
+                      <span id="nickname-hint" className="field-message is-visible">
+                        {t.popup.nicknameHint}
+                      </span>
+                      <span id="nickname-error" className={`field-message ${formErrors.nickname ? "is-visible is-error" : ""}`}>
+                        {formErrors.nickname}
+                      </span>
+                    </div>
+                    <div className="popup-actions">
+                      <button type="submit" className="cta-primary cta-inline wide" disabled={popupPending}>
+                        {popupPending ? t.popup.pending : t.popup.confirm}
+                      </button>
+                      <button type="button" className="popup-close" onClick={closeConfirmPopup}>
+                        {t.popup.close}
+                      </button>
+                    </div>
+                  </form>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}
