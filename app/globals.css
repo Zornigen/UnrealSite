@@ -63,6 +63,17 @@ body::-webkit-scrollbar {
   gap: 0.6rem;
 }
 
+.lang-switcher {
+  position: fixed;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 45;
+  padding: 0;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .section-rail {
   right: -0.35rem;
   flex-direction: column;
@@ -1112,6 +1123,299 @@ body::-webkit-scrollbar {
   padding-bottom: 1.35rem;
 }
 
+.classes-panel {
+  padding-top: 2.85rem;
+  padding-bottom: 1.35rem;
+}
+
+.classes-layout {
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.classes-stage {
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.classes-stack {
+  position: relative;
+  min-height: clamp(31rem, 68vh, 44rem);
+  border-radius: calc(var(--radius-main) + 0.2rem);
+  overflow: visible;
+  background: none;
+}
+
+.classes-stack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 8, 0.16), rgba(3, 5, 8, 0.02) 42%, rgba(3, 5, 8, 0.08));
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.classes-stack-touch {
+  position: relative;
+  min-height: inherit;
+  touch-action: pan-y;
+}
+
+.class-card {
+  --card-x: calc(var(--class-offset) * 9.5%);
+  --card-rotate: calc(var(--class-offset) * 3.5deg);
+  position: absolute;
+  inset: 0.2rem auto 0.2rem 50%;
+  width: min(22rem, calc(100% - 0.5rem));
+  transform:
+    translateX(calc(-50% + var(--card-x)))
+    translateY(calc(var(--class-depth) * 0.28rem))
+    rotate(var(--card-rotate))
+    scale(calc(1 - var(--class-depth) * 0.045));
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 260ms ease,
+    opacity 260ms ease;
+  filter: saturate(calc(1 - var(--class-depth) * 0.12));
+  opacity: calc(1 - var(--class-depth) * 0.08);
+}
+
+.class-card:hover,
+.class-card:focus-visible {
+  filter: none;
+}
+
+.class-card.is-active {
+  --card-x: 0%;
+  --card-rotate: 0deg;
+  opacity: 1;
+  filter: none;
+}
+
+.class-card-frame {
+  position: relative;
+  display: grid;
+  align-content: end;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  border-radius: calc(var(--radius-main) + 0.1rem);
+  border: 1px solid color-mix(in srgb, var(--class-accent) 48%, rgba(255, 255, 255, 0.12));
+  padding: 1rem;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.64)),
+    rgba(8, 11, 16, 0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 0 1px color-mix(in srgb, var(--class-accent) 12%, transparent),
+    0 28px 40px var(--class-shadow),
+    0 0 26px var(--class-glow);
+}
+
+.class-card-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--class-portrait);
+  pointer-events: none;
+}
+
+.class-card-frame::after {
+  content: "";
+  position: absolute;
+  inset: auto 12% 20% 12%;
+  height: 44%;
+  border-radius: 50% 50% 18% 18% / 26% 26% 14% 14%;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.14), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(1, 2, 4, 0.78));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 0 34px rgba(0, 0, 0, 0.36);
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+.class-card-badge {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  z-index: 2;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--class-accent) 42%, rgba(255, 255, 255, 0.14));
+  background: rgba(4, 8, 12, 0.7);
+  color: color-mix(in srgb, var(--class-accent) 72%, #ffffff);
+  padding: 0.26rem 0.55rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.class-card-portrait {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+.class-card-sigil {
+  display: grid;
+  place-items: center;
+  width: clamp(6rem, 10vw, 8.2rem);
+  aspect-ratio: 1;
+  border-radius: 22%;
+  border: 1px solid color-mix(in srgb, var(--class-accent) 48%, rgba(255, 255, 255, 0.16));
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--class-accent) 18%, transparent), transparent 65%),
+    rgba(6, 10, 14, 0.4);
+  color: color-mix(in srgb, var(--class-accent) 88%, #ffffff);
+  font-family: var(--font-abaddon), var(--font-beaufort), "Segoe UI", sans-serif;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 0 12px var(--class-glow),
+    0 0 24px rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 24px rgba(0, 0, 0, 0.18);
+}
+
+.class-card-copy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.32rem;
+  text-align: left;
+}
+
+.class-card-name {
+  font-size: clamp(1.2rem, 1.6vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.class-card-role {
+  color: rgba(239, 245, 250, 0.72);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.class-detail {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--class-accent) 32%, rgba(255, 255, 255, 0.12));
+  border-radius: var(--radius-main);
+  background:
+    radial-gradient(circle at 84% 14%, color-mix(in srgb, var(--class-accent) 14%, transparent), transparent 28%),
+    linear-gradient(155deg, color-mix(in srgb, var(--class-accent) 10%, transparent), rgba(0, 0, 0, 0.18) 45%),
+    rgba(8, 12, 18, 0.86);
+  padding: clamp(1rem, 2vw, 1.35rem);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 24px color-mix(in srgb, var(--class-glow) 58%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--class-accent) 8%, transparent);
+}
+
+.class-detail-kicker {
+  margin: 0;
+  color: color-mix(in srgb, var(--class-accent) 78%, #eef6ff);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.class-detail-title {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  line-height: 0.94;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.class-detail-subtitle {
+  margin: 0;
+  color: color-mix(in srgb, var(--class-accent) 42%, #f5ead4);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  line-height: 1.45;
+}
+
+.class-detail-copy {
+  margin: 0;
+  color: rgba(244, 240, 229, 0.78);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.class-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.class-stat-card {
+  display: grid;
+  gap: 0.2rem;
+  border: 1px solid color-mix(in srgb, var(--class-accent) 16%, rgba(255, 255, 255, 0.08));
+  border-radius: calc(var(--radius-main) - 0.02rem);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--class-accent) 7%, rgba(255, 255, 255, 0.04)), rgba(0, 0, 0, 0.16)),
+    rgba(7, 11, 16, 0.76);
+  padding: 0.72rem 0.8rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.class-stat-label {
+  color: rgba(244, 240, 229, 0.54);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.class-stat-value {
+  color: color-mix(in srgb, var(--class-accent) 34%, #eff5fb);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.class-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.class-trait-chip {
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--class-accent) 22%, rgba(255, 255, 255, 0.08));
+  background: color-mix(in srgb, var(--class-accent) 10%, rgba(255, 255, 255, 0.02));
+  color: color-mix(in srgb, var(--class-accent) 38%, #eef6ff);
+  padding: 0.42rem 0.72rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--class-glow) 28%, transparent);
+}
+
 .roadmap-layout {
   display: grid;
   gap: 0.9rem;
@@ -1457,6 +1761,12 @@ body::-webkit-scrollbar {
     gap: 1.25rem;
     align-items: stretch;
   }
+
+  .classes-layout {
+    grid-template-columns: minmax(26rem, 1.08fr) minmax(20rem, 0.92fr);
+    gap: 0.35rem;
+    align-items: stretch;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1471,6 +1781,11 @@ body::-webkit-scrollbar {
     align-items: flex-start;
     padding-block: 1rem;
     overflow-x: hidden;
+  }
+
+  .lang-switcher {
+    top: 0.7rem;
+    right: 0.7rem;
   }
 
   .landing-shell,
@@ -1492,6 +1807,7 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     padding-block: 1rem;
+    padding-top: 4.6rem;
     overflow: hidden;
   }
 
@@ -1659,6 +1975,68 @@ body::-webkit-scrollbar {
   .new-world-panel {
     min-height: auto;
     display: block;
+  }
+
+  .classes-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .classes-stack {
+    min-height: 26rem;
+  }
+
+  .class-card {
+    --card-x: calc(var(--class-offset) * 5.2%);
+    inset: 0.25rem auto 0.25rem 50%;
+    width: min(17rem, calc(100% - 0.45rem));
+  }
+
+  .class-card-name {
+    font-size: 1rem;
+  }
+
+  .class-card-role {
+    font-size: 0.68rem;
+  }
+
+  .class-card-sigil {
+    width: clamp(4.6rem, 22vw, 6rem);
+    font-size: clamp(1.7rem, 7vw, 2.5rem);
+  }
+
+  .class-detail {
+    gap: 0.7rem;
+  }
+
+  .class-detail-title {
+    font-size: clamp(1.45rem, 8vw, 2.2rem);
+  }
+
+  .class-detail-subtitle,
+  .class-detail-copy {
+    font-size: 0.9rem;
+  }
+
+  .class-stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .class-stat-card {
+    padding: 0.62rem;
+  }
+
+  .class-stat-value {
+    font-size: 1.05rem;
+  }
+
+  .class-traits {
+    gap: 0.42rem;
+  }
+
+  .class-trait-chip {
+    font-size: 0.66rem;
+    padding: 0.38rem 0.62rem;
   }
 
   .roadmap-panel {

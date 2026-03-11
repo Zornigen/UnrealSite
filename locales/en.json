@@ -9,9 +9,13 @@
                          "id":  "hero",
                          "label":  "Start"
                      },
-                    {
-                        "id":  "new-world",
-                        "label":  "New World"
+                     {
+                         "id":  "new-world",
+                         "label":  "New World"
+                     },
+                     {
+                         "id":  "classes",
+                         "label":  "Classes"
                      },
                      {
                          "id":  "roadmap",
@@ -115,6 +119,168 @@
                                    "Plains",
                                    "Valley"
                                ]
+                 },
+    "classes":  {
+                    "title":  "Classes",
+                    "kicker":  "Choose the force that will carry you into the new world",
+                    "items":  [
+                                  {
+                                      "name":  "Titan",
+                                      "role":  "Frontline breaker",
+                                      "sigil":  "T",
+                                      "tagline":  "An iron wall that shatters formation with a single surge.",
+                                      "description":  "Titan takes the first impact and turns enemy pressure into his own advantage. This class is built for players who want to dominate melee combat, absorb aggression, and lead the party forward through heavy contact, area control, and raw physical force.",
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Attack",
+                                                        "value":  "S"
+                                                    },
+                                                    {
+                                                        "label":  "Defense",
+                                                        "value":  "S+"
+                                                    },
+                                                    {
+                                                        "label":  "Control",
+                                                        "value":  "A"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Two-handed weapons",
+                                                     "Frontline breach",
+                                                     "Area strikes"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Knight",
+                                      "role":  "Formation guardian",
+                                      "sigil":  "K",
+                                      "tagline":  "A disciplined bastion built on calm precision.",
+                                      "description":  "Knight wins fights through order rather than fury. His strength comes from endurance, controlled tempo, and the ability to hold a line exactly where others collapse. This class fits players who want clean frontline control and the feeling of an unbreakable frame around the group.",
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Attack",
+                                                        "value":  "A"
+                                                    },
+                                                    {
+                                                        "label":  "Defense",
+                                                        "value":  "S"
+                                                    },
+                                                    {
+                                                        "label":  "Support",
+                                                        "value":  "A"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Sword and shield",
+                                                     "Formation aura",
+                                                     "Duel resilience"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Healer",
+                                      "role":  "Heart of the party",
+                                      "sigil":  "H",
+                                      "tagline":  "The support core no long engagement survives without.",
+                                      "description":  "Healer keeps the group combat-ready and turns chaos into controlled endurance. The strength of the class is not a single strike, but the fact that allies stay in the fight longer than they were ever meant to. It fits players who want influence over the whole battle rather than only personal damage numbers.",
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Healing",
+                                                        "value":  "S+"
+                                                    },
+                                                    {
+                                                        "label":  "Support",
+                                                        "value":  "S"
+                                                    },
+                                                    {
+                                                        "label":  "Damage",
+                                                        "value":  "B"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Group healing",
+                                                     "Party buffs",
+                                                     "Cleanse control"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Mage",
+                                      "role":  "Ranged devastation",
+                                      "sigil":  "M",
+                                      "tagline":  "Pure elemental force shaped into ideal distance.",
+                                      "description":  "Mage turns the battlefield into a suppression zone. He works from range, blankets the enemy with chained spells, and punishes every mistake in positioning. This class is for players who want extreme damage, pace control, and the unmistakable feeling of overwhelming magical superiority.",
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Damage",
+                                                        "value":  "S+"
+                                                    },
+                                                    {
+                                                        "label":  "Control",
+                                                        "value":  "A"
+                                                    },
+                                                    {
+                                                        "label":  "Defense",
+                                                        "value":  "C"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Elemental volleys",
+                                                     "Area pressure",
+                                                     "Range control"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Rogue",
+                                      "role":  "Backline assassin",
+                                      "sigil":  "R",
+                                      "tagline":  "Speed, critical bursts, and disappearance before the answer arrives.",
+                                      "description":  "Rogue operates where the fight is already splitting apart. She dives into the weak point, removes a priority target, and vanishes before the enemy fully understands what happened. This class is made for aggressive mobile play where timing, positioning, and precision decide everything.",
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Attack",
+                                                        "value":  "S"
+                                                    },
+                                                    {
+                                                        "label":  "Mobility",
+                                                        "value":  "S+"
+                                                    },
+                                                    {
+                                                        "label":  "Survival",
+                                                        "value":  "B"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Critical bursts",
+                                                     "High evasion",
+                                                     "Backline pressure"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Sorcerer",
+                                      "role":  "Dark ritualist",
+                                      "sigil":  "S",
+                                      "tagline":  "Curses, attrition, and pressure that never lets go.",
+                                      "description":  "Sorcerer plays the long game and wins through gradual destruction. He weakens, binds, drains, and crushes the enemy not just with damage, but with inevitability. This class is built for players who prefer layered control, a darker tone, and methodical domination over the entire field.",
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Curses",
+                                                        "value":  "S"
+                                                    },
+                                                    {
+                                                        "label":  "Control",
+                                                        "value":  "S"
+                                                    },
+                                                    {
+                                                        "label":  "Burst",
+                                                        "value":  "B+"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Damage over time",
+                                                     "Enemy debuffs",
+                                                     "Dark rituals"
+                                                 ]
+                                  }
+                              ]
                  },
     "roadmap":  {
                     "title":  "Migration Roadmap",

@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { type CSSProperties, type TouchEvent, FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import en from "@/locales/en.json";
 import ru from "@/locales/ru.json";
 
@@ -48,6 +48,50 @@ const COMPARE_PAIRS = [
     afterPosition: "44% 66%",
   },
 ] as const;
+const CLASS_THEMES = [
+  {
+    accent: "#A94720",
+    glow: "rgba(169, 71, 32, 0.38)",
+    shadow: "rgba(88, 34, 12, 0.42)",
+    portrait:
+      "radial-gradient(circle at 52% 22%, rgba(230, 170, 145, 0.4), transparent 24%), linear-gradient(180deg, rgba(169, 71, 32, 0.26), rgba(20, 12, 6, 0.06) 34%, rgba(0, 0, 0, 0.56) 100%)",
+  },
+  {
+    accent: "#207FAA",
+    glow: "rgba(32, 127, 170, 0.38)",
+    shadow: "rgba(10, 48, 79, 0.4)",
+    portrait:
+      "radial-gradient(circle at 50% 24%, rgba(174, 222, 245, 0.42), transparent 24%), linear-gradient(180deg, rgba(32, 127, 170, 0.28), rgba(10, 24, 36, 0.1) 34%, rgba(0, 0, 0, 0.56) 100%)",
+  },
+  {
+    accent: "#388E50",
+    glow: "rgba(56, 142, 80, 0.36)",
+    shadow: "rgba(18, 70, 40, 0.42)",
+    portrait:
+      "radial-gradient(circle at 52% 20%, rgba(194, 236, 181, 0.4), transparent 24%), linear-gradient(180deg, rgba(56, 142, 80, 0.24), rgba(16, 34, 18, 0.08) 34%, rgba(0, 0, 0, 0.56) 100%)",
+  },
+  {
+    accent: "#524C7B",
+    glow: "rgba(82, 76, 123, 0.36)",
+    shadow: "rgba(39, 28, 73, 0.42)",
+    portrait:
+      "radial-gradient(circle at 49% 21%, rgba(214, 205, 249, 0.42), transparent 24%), linear-gradient(180deg, rgba(82, 76, 123, 0.24), rgba(22, 18, 34, 0.08) 34%, rgba(0, 0, 0, 0.56) 100%)",
+  },
+  {
+    accent: "#DB9C00",
+    glow: "rgba(219, 156, 0, 0.34)",
+    shadow: "rgba(90, 58, 10, 0.42)",
+    portrait:
+      "radial-gradient(circle at 53% 18%, rgba(255, 228, 170, 0.4), transparent 24%), linear-gradient(180deg, rgba(219, 156, 0, 0.24), rgba(38, 24, 8, 0.1) 34%, rgba(0, 0, 0, 0.56) 100%)",
+  },
+  {
+    accent: "#8237A2",
+    glow: "rgba(130, 55, 162, 0.34)",
+    shadow: "rgba(55, 19, 76, 0.42)",
+    portrait:
+      "radial-gradient(circle at 50% 18%, rgba(225, 191, 246, 0.42), transparent 24%), linear-gradient(180deg, rgba(130, 55, 162, 0.24), rgba(28, 14, 34, 0.08) 34%, rgba(0, 0, 0, 0.56) 100%)",
+  },
+] as const;
 type BadgeStep = (typeof BADGE_STEPS)[number];
 
 function getTimeParts(diffMs: number, labels: string[]) {
@@ -65,7 +109,16 @@ function getTimeParts(diffMs: number, labels: string[]) {
 }
 
 export default function Home() {
-  const locale: Locale = "ru";
+  const [locale, setLocale] = useState<Locale>(() => {
+    if (typeof window === "undefined") return "ru";
+
+    const storedLocale = window.localStorage.getItem("locale");
+    if (storedLocale === "ru" || storedLocale === "en") {
+      return storedLocale;
+    }
+
+    return window.navigator.language.toLowerCase().startsWith("ru") ? "ru" : "en";
+  });
   const t = translations[locale];
 
   const [now, setNow] = useState(() => Date.now());
@@ -73,6 +126,7 @@ export default function Home() {
   const [hideHeroTagOnMobile, setHideHeroTagOnMobile] = useState(false);
   const [comparePosition, setComparePosition] = useState(56);
   const [activeComparePairIndex, setActiveComparePairIndex] = useState(0);
+  const [activeClassIndex, setActiveClassIndex] = useState(0);
   const [activeRoadmapStepIndex, setActiveRoadmapStepIndex] = useState(0);
   const [email, setEmail] = useState("");
   const [donationAmount, setDonationAmount] = useState("");
@@ -82,6 +136,7 @@ export default function Home() {
   const [badgeStepIndex, setBadgeStepIndex] = useState(0);
   const [badgePairIndex, setBadgePairIndex] = useState(0);
   const scrollLockRef = useRef(false);
+  const classTouchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const [preregTarget] = useState(182746);
   const [supportTarget] = useState(999999);
@@ -97,6 +152,8 @@ export default function Home() {
   const badgePairs = t.hero.badge.pairs;
   const badgePair = badgePairs[badgePairIndex] ?? badgePairs[0];
   const activeComparePair = COMPARE_PAIRS[activeComparePairIndex] ?? COMPARE_PAIRS[0];
+  const activeClass = t.classes.items[activeClassIndex] ?? t.classes.items[0];
+  const activeClassTheme = CLASS_THEMES[activeClassIndex % CLASS_THEMES.length];
   const activeRoadmapStep = t.roadmap.steps[activeRoadmapStepIndex] ?? t.roadmap.steps[0];
 
   const scrollToSection = (id: string) => {
@@ -104,10 +161,54 @@ export default function Home() {
     node?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const toggleLocale = () => {
+    setLocale((prev) => (prev === "ru" ? "en" : "ru"));
+  };
+
+  const showNextClass = () => {
+    setActiveClassIndex((prev) => (prev + 1) % t.classes.items.length);
+  };
+
+  const showPrevClass = () => {
+    setActiveClassIndex((prev) => (prev - 1 + t.classes.items.length) % t.classes.items.length);
+  };
+
+  const onClassesTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+    classTouchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const onClassesTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    const start = classTouchStartRef.current;
+    if (!start) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+
+    classTouchStartRef.current = null;
+
+    if (Math.abs(deltaX) < 36 || Math.abs(deltaX) < Math.abs(deltaY)) {
+      return;
+    }
+
+    if (deltaX < 0) {
+      showNextClass();
+      return;
+    }
+
+    showPrevClass();
+  };
+
   useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    window.localStorage.setItem("locale", locale);
+  }, [locale]);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -230,6 +331,16 @@ export default function Home() {
 
   return (
     <div className="page-root">
+      <button
+        type="button"
+        className="social-dot lang-switcher"
+        aria-label={locale === "ru" ? "Switch language to English" : "Переключить язык на русский"}
+        title={locale === "ru" ? "Switch to English" : "Переключить на русский"}
+        onClick={toggleLocale}
+      >
+        {locale.toUpperCase()}
+      </button>
+
       <aside className="social-rail" aria-label={t.aria.socialLinks}>
         {t.social.map((item) => (
           <a
@@ -414,6 +525,94 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="classes" className="landing-section section-enter">
+        <div className="landing-shell section-panel split-panel classes-panel">
+          <h2 className="panel-ridge-title">{t.classes.title}</h2>
+
+          <div className="classes-layout">
+            <div className="classes-stage" role="tablist" aria-label={t.classes.title}>
+              <div className="classes-stack">
+              <div className="classes-stack-touch" onTouchStart={onClassesTouchStart} onTouchEnd={onClassesTouchEnd}>
+                {t.classes.items.map((item, index) => {
+                  const theme = CLASS_THEMES[index % CLASS_THEMES.length];
+                  const offset = index - activeClassIndex;
+                  const distance = Math.abs(offset);
+                  const isActive = index === activeClassIndex;
+
+                  return (
+                    <button
+                      key={item.name}
+                      type="button"
+                      className={`class-card ${isActive ? "is-active" : ""}`}
+                      onClick={() => setActiveClassIndex(index)}
+                      role="tab"
+                      aria-selected={isActive}
+                      style={
+                        {
+                          "--class-offset": offset,
+                          "--class-depth": distance,
+                          "--class-accent": theme.accent,
+                          "--class-glow": theme.glow,
+                          "--class-shadow": theme.shadow,
+                          "--class-portrait": theme.portrait,
+                          zIndex: t.classes.items.length - distance,
+                        } as CSSProperties
+                      }
+                    >
+                      <span className="class-card-frame">
+                        <span className="class-card-badge">{String(index + 1).padStart(2, "0")}</span>
+                        <span className="class-card-portrait" aria-hidden="true">
+                          <span className="class-card-sigil">{item.sigil}</span>
+                        </span>
+                        <span className="class-card-copy">
+                          <span className="class-card-name">{item.name}</span>
+                          <span className="class-card-role">{item.role}</span>
+                        </span>
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+              </div>
+            </div>
+
+            <article
+              className="class-detail"
+              role="tabpanel"
+              style={
+                {
+                  "--class-accent": activeClassTheme.accent,
+                  "--class-glow": activeClassTheme.glow,
+                  "--class-shadow": activeClassTheme.shadow,
+                } as CSSProperties
+              }
+            >
+              <p className="class-detail-kicker">{activeClass.role}</p>
+              <h3 className="class-detail-title">{activeClass.name}</h3>
+              <p className="class-detail-subtitle">{activeClass.tagline}</p>
+              <p className="class-detail-copy">{activeClass.description}</p>
+
+              <div className="class-stat-grid">
+                {activeClass.stats.map((stat) => (
+                  <div key={stat.label} className="class-stat-card">
+                    <span className="class-stat-label">{stat.label}</span>
+                    <span className="class-stat-value">{stat.value}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="class-traits">
+                {activeClass.traits.map((trait) => (
+                  <span key={trait} className="class-trait-chip">
+                    {trait}
+                  </span>
+                ))}
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="roadmap" className="landing-section section-enter">
         <div className="landing-shell section-panel split-panel roadmap-panel">
           <h2 className="panel-ridge-title">{t.roadmap.title}</h2>
@@ -461,7 +660,7 @@ export default function Home() {
           <div className="section-panel split-panel prereg-panel">
             <h2 className="panel-ridge-title">{t.prereg.title}</h2>
             <div className="prereg-block">
-              <p className="big-number">{preregCount.toLocaleString("ru-RU")}</p>
+              <p className="big-number">{preregCount.toLocaleString(locale === "ru" ? "ru-RU" : "en-US")}</p>
               <p className="kicker">{t.prereg.kicker}</p>
 
               <form onSubmit={onPreregSubmit} className="email-form">
@@ -484,7 +683,7 @@ export default function Home() {
           <div id="support" className="section-panel split-panel support-panel">
             <h2 className="panel-ridge-title">{t.support.cta}</h2>
             <div className="support-block">
-              <p className="big-number money">{supportCount.toLocaleString("ru-RU")}</p>
+              <p className="big-number money">{supportCount.toLocaleString(locale === "ru" ? "ru-RU" : "en-US")}</p>
               <p className="kicker">{t.support.kicker}</p>
               <form className="email-form support-form">
                 <input
