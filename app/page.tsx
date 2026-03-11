@@ -11,6 +11,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const withBasePath = (path: string) => `${basePath}${path}`;
 
 const RELEASE_DATE = new Date("2026-08-16T16:00:00+03:00");
+const CONTENT_AUTOPLAY_MS = 6800;
 const BADGE_STEPS = ["old", "strike", "morph", "new", "new"] as const;
 const INITIAL_PARTICIPANTS = [
   "AsterVox",
@@ -92,6 +93,24 @@ const CLASS_THEMES = [
       `radial-gradient(circle at 50% 18%, rgba(225, 191, 246, 0.22), transparent 24%), linear-gradient(180deg, rgba(130, 55, 162, 0.1), rgba(28, 14, 34, 0.04) 34%, rgba(0, 0, 0, 0.52) 100%), url("${withBasePath("/cards/sorcerer.png")}") center top / cover no-repeat`,
   },
 ] as const;
+const createContentTheme = (accent: string, glow: string) => ({
+  accent,
+  glow,
+  haze:
+    `radial-gradient(circle at 18% 22%, color-mix(in srgb, ${accent} 24%, transparent), transparent 26%), ` +
+    `radial-gradient(circle at 84% 72%, color-mix(in srgb, ${accent} 10%, rgba(255,255,255,0.08)), transparent 24%)`,
+  surface:
+    `linear-gradient(145deg, color-mix(in srgb, ${accent} 18%, transparent), rgba(10, 14, 22, 0.18) 42%, rgba(4, 7, 12, 0.92) 100%)`,
+});
+
+const CONTENT_THEMES = [
+  createContentTheme("#207FAA", "rgba(32, 127, 170, 0.38)"),
+  createContentTheme("#A94720", "rgba(169, 71, 32, 0.38)"),
+  createContentTheme("#DB9C00", "rgba(219, 156, 0, 0.34)"),
+  createContentTheme("#8237A2", "rgba(130, 55, 162, 0.34)"),
+  createContentTheme("#524C7B", "rgba(82, 76, 123, 0.36)"),
+  createContentTheme("#388E50", "rgba(56, 142, 80, 0.36)"),
+] as const;
 type BadgeStep = (typeof BADGE_STEPS)[number];
 
 function getTimeParts(diffMs: number, labels: string[]) {
@@ -128,6 +147,8 @@ export default function Home() {
   const [activeComparePairIndex, setActiveComparePairIndex] = useState(0);
   const [activeClassIndex, setActiveClassIndex] = useState(0);
   const [activeProfessionIndex, setActiveProfessionIndex] = useState(0);
+  const [activeContentIndex, setActiveContentIndex] = useState(0);
+  const [contentProgress, setContentProgress] = useState(0);
   const [activeRoadmapStepIndex, setActiveRoadmapStepIndex] = useState(0);
   const [email, setEmail] = useState("");
   const [donationAmount, setDonationAmount] = useState("");
@@ -160,6 +181,8 @@ export default function Home() {
     "stats" in activeProfession && Array.isArray(activeProfession.stats)
       ? activeProfession.stats
       : activeClass.stats.slice(0, 2);
+  const activeContent = t.content.items[activeContentIndex] ?? t.content.items[0];
+  const activeContentTheme = CONTENT_THEMES[activeContentIndex % CONTENT_THEMES.length];
   const activeRoadmapStep = t.roadmap.steps[activeRoadmapStepIndex] ?? t.roadmap.steps[0];
 
   const scrollToSection = (id: string) => {
@@ -179,6 +202,11 @@ export default function Home() {
   const showPrevClass = () => {
     setActiveClassIndex((prev) => (prev - 1 + t.classes.items.length) % t.classes.items.length);
     setActiveProfessionIndex(0);
+  };
+
+  const selectContent = (index: number) => {
+    setActiveContentIndex(index);
+    setContentProgress(0);
   };
 
   const onClassesTouchStart = (event: TouchEvent<HTMLDivElement>) => {
@@ -252,6 +280,27 @@ export default function Home() {
 
     return () => window.clearInterval(interval);
   }, [supportTarget]);
+
+  useEffect(() => {
+    let frameId = 0;
+    const startedAt = performance.now();
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - startedAt) / CONTENT_AUTOPLAY_MS, 1);
+      setContentProgress(progress);
+
+      if (progress >= 1) {
+        setActiveContentIndex((current) => (current + 1) % t.content.items.length);
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(tick);
+    };
+
+    frameId = window.requestAnimationFrame(tick);
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [activeContentIndex, t.content.items.length]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -665,6 +714,95 @@ export default function Home() {
                     <span className="class-stat-value">{stat.value}</span>
                   </div>
                 ))}
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="content" className="landing-section section-enter">
+        <div className="landing-shell section-panel split-panel content-panel">
+          <h2 className="panel-ridge-title">{t.content.title}</h2>
+
+          <div
+            className="content-layout"
+            style={
+              {
+                "--content-accent": activeContentTheme.accent,
+                "--content-glow": activeContentTheme.glow,
+              } as CSSProperties
+            }
+          >
+            <div className="content-switch" role="tablist" aria-label={t.content.title}>
+              {t.content.items.map((item, index) => (
+                <button
+                  key={item.name}
+                  type="button"
+                  className={`content-tab ${index === activeContentIndex ? "is-active" : ""}`}
+                  onClick={() => selectContent(index)}
+                  role="tab"
+                  aria-selected={index === activeContentIndex}
+                  style={
+                    index === activeContentIndex
+                      ? ({
+                          "--content-accent": activeContentTheme.accent,
+                          "--content-glow": activeContentTheme.glow,
+                        } as CSSProperties)
+                      : undefined
+                  }
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+
+            <article
+              className="content-scene"
+              role="tabpanel"
+              style={
+                {
+                  "--content-accent": activeContentTheme.accent,
+                  "--content-glow": activeContentTheme.glow,
+                  "--content-haze": activeContentTheme.haze,
+                  "--content-surface": activeContentTheme.surface,
+                  "--content-progress": contentProgress,
+                } as CSSProperties
+              }
+            >
+              <div className="content-scene-layers" aria-hidden="true">
+                <span className="content-layer content-layer-a" />
+                <span className="content-layer content-layer-b" />
+                <span className="content-layer content-layer-c" />
+                <span className="content-layer content-layer-d" />
+              </div>
+
+              <div className="content-scene-grid">
+                <div className="content-copy">
+                  <p className="content-eyebrow">{activeContent.eyebrow}</p>
+                  <h3 className="content-title">{activeContent.name}</h3>
+                  <p className="content-subtitle">{activeContent.subtitle}</p>
+                  <div className="content-bullets">
+                    {activeContent.bullets.map((bullet) => (
+                      <p key={bullet} className="content-bullet">
+                        {bullet}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="content-side">
+                  <div className="content-fact-card">
+                    <span className="content-fact-label">{activeContent.factLabel}</span>
+                    <span className="content-fact-value">{activeContent.factValue}</span>
+                  </div>
+                  <div className="content-highlight-row">
+                    {activeContent.highlights.map((item) => (
+                      <span key={item} className="content-highlight-chip">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </article>
           </div>

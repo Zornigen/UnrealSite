@@ -18,6 +18,10 @@
                          "label":  "Classes"
                      },
                      {
+                         "id":  "content",
+                         "label":  "Content"
+                     },
+                     {
                          "id":  "roadmap",
                          "label":  "Roadmap"
                      },
@@ -534,6 +538,113 @@
                                   }
                               ]
                  },
+    "content":  {
+                    "title":  "Content",
+                    "items":  [
+                                  {
+                                      "name":  "Guilds",
+                                      "eyebrow":  "COMMUNITY POWER",
+                                      "subtitle":  "More than a tag above your head: a large fighting structure with real weight in the world.",
+                                      "bullets":  [
+                                                      "Up to 100 players under one banner",
+                                                      "Hierarchy, roles, and constant coordination",
+                                                      "The foundation for sieges, PvP, and long-term group play"
+                                                  ],
+                                      "factLabel":  "Scale",
+                                      "factValue":  "Up to 100 players",
+                                      "highlights":  [
+                                                         "Alliance",
+                                                         "Hierarchy",
+                                                         "Scale"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "PvP",
+                                      "eyebrow":  "LIVE CONFLICT",
+                                      "subtitle":  "A world where danger comes not only from monsters, but from other players.",
+                                      "bullets":  [
+                                                      "Open clashes without long setup",
+                                                      "Constant tension and the risk of sudden contact",
+                                                      "Duels, hunting, and personal rivalry as part of the atmosphere"
+                                                  ],
+                                      "factLabel":  "Mode",
+                                      "factValue":  "Open conflict",
+                                      "highlights":  [
+                                                         "Duels",
+                                                         "Hunting",
+                                                         "Risk"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Sieges",
+                                      "eyebrow":  "WAR FOR INFLUENCE",
+                                      "subtitle":  "Not a local skirmish, but a major war where frontline pressure is felt everywhere.",
+                                      "bullets":  [
+                                                      "Battles for key points and control of space",
+                                                      "Victory depends on formation as much as raw power",
+                                                      "A single positioning mistake can flip the whole fight"
+                                                  ],
+                                      "factLabel":  "Format",
+                                      "factValue":  "Mass guild warfare",
+                                      "highlights":  [
+                                                         "Frontline",
+                                                         "Capture",
+                                                         "Control"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Tournaments",
+                                      "eyebrow":  "COMPETITIVE RHYTHM",
+                                      "subtitle":  "A recurring competitive rhythm that gathers the strongest players on schedule.",
+                                      "bullets":  [
+                                                      "Automatic launch every weekend without manual setup",
+                                                      "A clear cycle of entry and real event energy",
+                                                      "A place where builds and preparation speak for themselves"
+                                                  ],
+                                      "factLabel":  "Launch",
+                                      "factValue":  "Automatic on weekends",
+                                      "highlights":  [
+                                                         "Arena",
+                                                         "Ranking",
+                                                         "Prestige"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Bosses",
+                                      "eyebrow":  "GROUP HUNT",
+                                      "subtitle":  "Heavy encounters where brute force without discipline quickly turns into failure.",
+                                      "bullets":  [
+                                                      "Powerful bosses with a high cost for every mistake",
+                                                      "Timing, roles, and group discipline matter more than random damage",
+                                                      "The feeling of a real hunt instead of routine PvE"
+                                                  ],
+                                      "factLabel":  "Combat Type",
+                                      "factValue":  "Group PvE encounters",
+                                      "highlights":  [
+                                                         "Hunt",
+                                                         "Roles",
+                                                         "Timing"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Crafting",
+                                      "eyebrow":  "WORLD ECONOMY",
+                                      "subtitle":  "Materials, production, and gear growth that directly affect the value of what you earn.",
+                                      "bullets":  [
+                                                      "Gathering resources and turning them into useful materials",
+                                                      "Creating items and improving equipment",
+                                                      "A direct link between loot, progression, and player economy"
+                                                  ],
+                                      "factLabel":  "System",
+                                      "factValue":  "Production and enhancement",
+                                      "highlights":  [
+                                                         "Resources",
+                                                         "Production",
+                                                         "Progress"
+                                                     ]
+                                  }
+                              ]
+                },
     "roadmap":  {
                     "title":  "Migration Roadmap",
                     "completedLabel": "Completed phase",
