@@ -1245,13 +1245,7 @@ body::-webkit-scrollbar {
 }
 
 .classes-stack::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(3, 5, 8, 0.16), rgba(3, 5, 8, 0.02) 42%, rgba(3, 5, 8, 0.08));
-  border-radius: inherit;
-  pointer-events: none;
+  content: none;
 }
 
 .classes-stack-touch {

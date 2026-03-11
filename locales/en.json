@@ -139,6 +139,16 @@
                                                                             "Axe",
                                                                             "AoE damage",
                                                                             "Perfect Body"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Axe"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Melee"
+                                                                            }
                                                                         ]
                                                           },
                                                           {
@@ -149,6 +159,16 @@
                                                                             "Sword",
                                                                             "Stun and slow",
                                                                             "Party buffs"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Sword"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Melee"
+                                                                            }
                                                                         ]
                                                           }
                                                       ],
@@ -187,6 +207,16 @@
                                                                             "Dual swords",
                                                                             "Stun",
                                                                             "Hit-rate buff"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Blades"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Melee"
+                                                                            }
                                                                         ]
                                                           },
                                                           {
@@ -197,6 +227,16 @@
                                                                             "Sword and shield",
                                                                             "Party support",
                                                                             "Elemental debuff"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Sword and Shield"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Melee"
+                                                                            }
                                                                         ]
                                                           }
                                                       ],
@@ -235,6 +275,16 @@
                                                                             "Healing",
                                                                             "Debuff removal",
                                                                             "Buffs"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Scepter"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Ranged"
+                                                                            }
                                                                         ]
                                                           },
                                                           {
@@ -245,6 +295,16 @@
                                                                             "Bow",
                                                                             "Stun / slow",
                                                                             "HP / MP support"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Bow"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Ranged"
+                                                                            }
                                                                         ]
                                                           }
                                                       ],
@@ -283,6 +343,16 @@
                                                                             "Curses",
                                                                             "Petrify / sleep",
                                                                             "Buff removal"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Wand"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Ranged"
+                                                                            }
                                                                         ]
                                                           },
                                                           {
@@ -293,6 +363,16 @@
                                                                             "Staff",
                                                                             "Elemental AoE",
                                                                             "Mana recovery"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Staff"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Ranged"
+                                                                            }
                                                                         ]
                                                           }
                                                       ],
@@ -331,6 +411,16 @@
                                                                             "Daggers",
                                                                             "Snare",
                                                                             "Feign death"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Daggers"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Melee"
+                                                                            }
                                                                         ]
                                                           },
                                                           {
@@ -341,6 +431,16 @@
                                                                             "Crossbow",
                                                                             "High hit rate",
                                                                             "Stun / invisibility"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Crossbow"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Ranged"
+                                                                            }
                                                                         ]
                                                           }
                                                       ],
@@ -379,6 +479,16 @@
                                                                             "Elementals",
                                                                             "Fallarm",
                                                                             "AoE"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Fallarm"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Melee"
+                                                                            }
                                                                         ]
                                                           },
                                                           {
@@ -389,6 +499,16 @@
                                                                             "Knight form",
                                                                             "Demon form",
                                                                             "Scythe"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Weapon",
+                                                                                "value":  "Scythe"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Mixed"
+                                                                            }
                                                                         ]
                                                           }
                                                       ],
