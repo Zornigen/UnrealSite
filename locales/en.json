@@ -698,53 +698,87 @@
     "media":  {
                   "title":  "Media",
                   "counterLabel":  "Mode",
+                  "labels":  {
+                                 "watch":  "Watch",
+                                 "open":  "Open",
+                                 "visit":  "Visit",
+                                 "download":  "Download",
+                                 "close":  "Close",
+                                 "previous":  "Previous frame",
+                                 "next":  "Next frame",
+                                 "videoFallback":  "Your browser does not support the video tag."
+                             },
                   "modes":  [
                                 {
                                     "name":  "Screenshots",
                                     "descriptor":  "Live in-game frames and world angles",
                                     "hero":  {
+                                                 "kind":  "image",
                                                  "eyebrow":  "In-Game World",
                                                  "title":  "Live frames without render polish",
                                                  "copy":  "The game shown as players will actually see it: world scenes, lighting, architecture, and atmosphere without staged retouching.",
                                                  "image":  "/media/hero-start-poster.webp",
+                                                 "src":  "/media/hero-start-poster.webp",
+                                                 "download":  "/media/hero-start-poster.webp",
                                                  "meta":  "4K capture",
                                                  "action":  "Open Frame"
                                              },
                                     "items":  [
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Titan",
                                                       "meta":  "Battle silhouette",
-                                                      "image":  "/cards/titan.png"
+                                                      "image":  "/cards/titan.png",
+                                                      "src":  "/cards/titan.png",
+                                                      "download":  "/cards/titan.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Knight",
                                                       "meta":  "Heavy armor",
-                                                      "image":  "/cards/knight.png"
+                                                      "image":  "/cards/knight.png",
+                                                      "src":  "/cards/knight.png",
+                                                      "download":  "/cards/knight.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Healer",
                                                       "meta":  "Support light",
-                                                      "image":  "/cards/healer.png"
+                                                      "image":  "/cards/healer.png",
+                                                      "src":  "/cards/healer.png",
+                                                      "download":  "/cards/healer.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Mage",
                                                       "meta":  "Stage lighting",
-                                                      "image":  "/cards/mage.png"
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/cards/mage.png",
+                                                      "download":  "/cards/mage.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Rogue",
                                                       "meta":  "Sharp angle",
-                                                      "image":  "/cards/rogue.png"
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/cards/rogue.png",
+                                                      "download":  "/cards/rogue.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Sorcerer",
                                                       "meta":  "Dark palette",
-                                                      "image":  "/cards/sorcerer.png"
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/cards/sorcerer.png",
+                                                      "download":  "/cards/sorcerer.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "City at night",
                                                       "meta":  "World atmosphere",
-                                                      "image":  "/media/hero-start-poster.webp"
+                                                      "image":  "/media/hero-start-poster.webp",
+                                                      "src":  "/media/hero-start-poster.webp",
+                                                      "download":  "/media/hero-start-poster.webp"
                                                   }
                                               ]
                                 },
@@ -752,28 +786,40 @@
                                     "name":  "Video",
                                     "descriptor":  "Trailers, teasers, and gameplay rolls",
                                     "hero":  {
+                                                 "kind":  "video",
                                                  "eyebrow":  "Official Reel",
                                                  "title":  "Project launch trailer",
                                                  "copy":  "A large video stage for trailers and longer gameplay pieces that should introduce the project first.",
                                                  "image":  "/media/hero-start-poster.webp",
+                                                 "src":  "/media/hero-start.mp4",
+                                                 "download":  "/media/hero-start.mp4",
                                                  "meta":  "Trailer / 01:24",
                                                  "action":  "Watch"
                                              },
                                     "items":  [
                                                   {
+                                                      "kind":  "video",
                                                       "title":  "Update teaser",
                                                       "meta":  "00:32",
-                                                      "image":  "/cards/mage.png"
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
                                                   },
                                                   {
+                                                      "kind":  "video",
                                                       "title":  "World flythrough",
                                                       "meta":  "01:08",
-                                                      "image":  "/cards/sorcerer.png"
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
                                                   },
                                                   {
+                                                      "kind":  "video",
                                                       "title":  "Combat close-up",
                                                       "meta":  "00:48",
-                                                      "image":  "/cards/rogue.png"
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
                                                   }
                                               ]
                                 },
@@ -781,33 +827,48 @@
                                     "name":  "Wallpapers",
                                     "descriptor":  "Pre-rendered art and ultra-shot materials",
                                     "hero":  {
+                                                 "kind":  "image",
                                                  "eyebrow":  "Art Drop",
                                                  "title":  "Desktop wallpapers",
                                                  "copy":  "A separate mode for pre-rendered frames and ultra-shot materials that can work as official project wallpapers.",
                                                  "image":  "/cards/sorcerer.png",
+                                                 "src":  "/cards/sorcerer.png",
+                                                 "download":  "/cards/sorcerer.png",
                                                  "meta":  "3840 x 2160",
                                                  "action":  "Download"
                                              },
                                     "items":  [
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Sorcerer",
                                                       "meta":  "Desktop 4K",
-                                                      "image":  "/cards/sorcerer.png"
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/cards/sorcerer.png",
+                                                      "download":  "/cards/sorcerer.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Mage",
                                                       "meta":  "Desktop 4K",
-                                                      "image":  "/cards/mage.png"
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/cards/mage.png",
+                                                      "download":  "/cards/mage.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Rogue",
                                                       "meta":  "Desktop 4K",
-                                                      "image":  "/cards/rogue.png"
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/cards/rogue.png",
+                                                      "download":  "/cards/rogue.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Healer",
                                                       "meta":  "Desktop 4K",
-                                                      "image":  "/cards/healer.png"
+                                                      "image":  "/cards/healer.png",
+                                                      "src":  "/cards/healer.png",
+                                                      "download":  "/cards/healer.png"
                                                   }
                                               ]
                                 },
@@ -815,38 +876,50 @@
                                     "name":  "Partners",
                                     "descriptor":  "Project coverage from media partners",
                                     "hero":  {
+                                                 "kind":  "external",
                                                  "eyebrow":  "Media Relay",
                                                  "title":  "External coverage of the project",
                                                  "copy":  "A dedicated shelf for videos and coverage from partner platforms: YouTube, Twitch, VK, and other outside media.",
                                                  "image":  "/media/hero-start-poster.webp",
+                                                 "href":  "https://www.youtube.com",
                                                  "meta":  "YouTube / Twitch / VK",
                                                  "action":  "Open"
                                              },
                                     "items":  [
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Migration breakdown",
                                                       "meta":  "YouTube · StormVeil",
-                                                      "image":  "/cards/knight.png"
+                                                      "image":  "/cards/knight.png",
+                                                      "href":  "https://www.youtube.com"
                                                   },
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "New world stream",
                                                       "meta":  "Twitch · LunaCore",
-                                                      "image":  "/cards/healer.png"
+                                                      "image":  "/cards/healer.png",
+                                                      "href":  "https://www.twitch.tv"
                                                   },
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Community promo",
                                                       "meta":  "VK · IronShade",
-                                                      "image":  "/cards/titan.png"
+                                                      "image":  "/cards/titan.png",
+                                                      "href":  "https://vk.com"
                                                   },
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Audience feature",
                                                       "meta":  "YouTube · HexNova",
-                                                      "image":  "/cards/mage.png"
+                                                      "image":  "/cards/mage.png",
+                                                      "href":  "https://www.youtube.com"
                                                   },
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Patch overview",
                                                       "meta":  "VK · AsterVox",
-                                                      "image":  "/cards/sorcerer.png"
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "href":  "https://vk.com"
                                                   }
                                               ]
                                 }

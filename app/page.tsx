@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Image from "next/image";
 import { type CSSProperties, type TouchEvent, FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import en from "@/locales/en.json";
 import ru from "@/locales/ru.json";
@@ -16,6 +17,45 @@ type PopupSuccessState = {
   email: string;
   nickname: string;
 } | null;
+type MediaKind = "image" | "video" | "external";
+type MediaAsset = {
+  title: string;
+  meta: string;
+  image: string;
+  kind: MediaKind;
+  src?: string;
+  href?: string;
+  download?: string;
+  eyebrow?: string;
+  copy?: string;
+  action?: string;
+};
+type MediaGalleryEntry = MediaAsset & {
+  key: string;
+};
+
+function toMediaKind(value: string | undefined): MediaKind {
+  if (value === "video" || value === "external") return value;
+  return "image";
+}
+
+function normalizeMediaAsset(asset: {
+  title: string;
+  meta: string;
+  image: string;
+  kind?: string;
+  src?: string;
+  href?: string;
+  download?: string;
+  eyebrow?: string;
+  copy?: string;
+  action?: string;
+}): MediaAsset {
+  return {
+    ...asset,
+    kind: toMediaKind(asset.kind),
+  };
+}
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const withBasePath = (path: string) => `${basePath}${path}`;
@@ -186,6 +226,7 @@ export default function Home() {
   const [contentProgress, setContentProgress] = useState(0);
   const [activeRoadmapStepIndex, setActiveRoadmapStepIndex] = useState(0);
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
+  const [activeMediaLightboxIndex, setActiveMediaLightboxIndex] = useState<number | null>(null);
   const [email, setEmail] = useState("");
   const [donationAmount, setDonationAmount] = useState("");
   const [confirmCode, setConfirmCode] = useState("");
@@ -232,6 +273,22 @@ export default function Home() {
   const mediaFeatureCount = activeMediaIndex === 1 ? 3 : 2;
   const mediaSideItems = activeMediaMode.items.slice(0, mediaFeatureCount);
   const mediaGalleryItems = activeMediaMode.items.slice(mediaFeatureCount);
+  const mediaEntries = useMemo<MediaGalleryEntry[]>(
+    () => [
+      { ...normalizeMediaAsset(activeMediaMode.hero), key: `${activeMediaMode.name}-hero` },
+      ...activeMediaMode.items.map((item, index) => ({
+        ...normalizeMediaAsset(item),
+        key: `${activeMediaMode.name}-${index}`,
+      })),
+    ],
+    [activeMediaMode]
+  );
+  const lightboxEntries = useMemo(
+    () => mediaEntries.filter((entry) => entry.kind !== "external"),
+    [mediaEntries]
+  );
+  const activeLightboxEntry =
+    activeMediaLightboxIndex !== null ? lightboxEntries[activeMediaLightboxIndex] ?? null : null;
 
   const scrollToSection = (id: string) => {
     const node = document.getElementById(id);
@@ -264,6 +321,47 @@ export default function Home() {
     setConfirmCode("");
     setNickname("");
     setFormErrors((prev) => ({ ...prev, code: undefined, nickname: undefined }));
+  };
+
+  const closeMediaLightbox = () => {
+    setActiveMediaLightboxIndex(null);
+  };
+
+  const getMediaActionLabel = (asset: { action?: string; kind?: string }) => {
+    const kind = toMediaKind(asset.kind);
+
+    if (asset.action) return asset.action;
+    if (kind === "external") return t.media.labels.visit;
+    if (kind === "video") return t.media.labels.watch;
+    return t.media.labels.open;
+  };
+
+  const openMediaAsset = (asset: MediaGalleryEntry) => {
+    if (asset.kind === "external") {
+      if (asset.href) {
+        window.open(asset.href, "_blank", "noopener,noreferrer");
+      }
+      return;
+    }
+
+    const nextIndex = lightboxEntries.findIndex((entry) => entry.key === asset.key);
+    if (nextIndex >= 0) {
+      setActiveMediaLightboxIndex(nextIndex);
+    }
+  };
+
+  const showPrevMediaAsset = () => {
+    setActiveMediaLightboxIndex((prev) => {
+      if (prev === null || lightboxEntries.length === 0) return prev;
+      return (prev - 1 + lightboxEntries.length) % lightboxEntries.length;
+    });
+  };
+
+  const showNextMediaAsset = () => {
+    setActiveMediaLightboxIndex((prev) => {
+      if (prev === null || lightboxEntries.length === 0) return prev;
+      return (prev + 1) % lightboxEntries.length;
+    });
   };
 
   const onClassesTouchStart = (event: TouchEvent<HTMLDivElement>) => {
@@ -442,6 +540,40 @@ export default function Home() {
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [showConfirmPopup]);
+
+  useEffect(() => {
+    if (activeMediaLightboxIndex === null) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveMediaLightboxIndex(null);
+      }
+
+      if (event.key === "ArrowLeft") {
+        setActiveMediaLightboxIndex((prev) => {
+          if (prev === null || lightboxEntries.length === 0) return prev;
+          return (prev - 1 + lightboxEntries.length) % lightboxEntries.length;
+        });
+      }
+
+      if (event.key === "ArrowRight") {
+        setActiveMediaLightboxIndex((prev) => {
+          if (prev === null || lightboxEntries.length === 0) return prev;
+          return (prev + 1) % lightboxEntries.length;
+        });
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [activeMediaLightboxIndex, lightboxEntries]);
 
   const onPreregSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -1105,7 +1237,10 @@ export default function Home() {
                 key={mode.name}
                 type="button"
                 className={`media-ridge-word ${index === activeMediaIndex ? "is-active" : ""}`}
-                onClick={() => setActiveMediaIndex(index)}
+                onClick={() => {
+                  setActiveMediaIndex(index);
+                  setActiveMediaLightboxIndex(null);
+                }}
                 aria-pressed={index === activeMediaIndex}
               >
                 {mode.name}
@@ -1129,17 +1264,24 @@ export default function Home() {
               </div>
               <div className="media-hero-meta">
                 <span className="media-hero-chip">{activeMediaMode.hero.meta}</span>
-                <button type="button" className="media-hero-action">
-                  {activeMediaMode.hero.action}
+                <button
+                  type="button"
+                  className="media-hero-action"
+                  onClick={() => openMediaAsset(mediaEntries[0])}
+                >
+                  {getMediaActionLabel(activeMediaMode.hero)}
                 </button>
               </div>
             </article>
 
             <div className="media-feature-list">
               {mediaSideItems.map((item, index) => (
-                <article
+                <button
                   key={`${activeMediaMode.name}-feature-${item.title}`}
-                  className={`media-feature-card media-feature-${activeMediaIndex + 1}-${index + 1}`}
+                  type="button"
+                  className={`media-card-button media-feature-card media-feature-${activeMediaIndex + 1}-${index + 1}`}
+                  onClick={() => openMediaAsset(mediaEntries[index + 1])}
+                  aria-label={`${item.title}. ${getMediaActionLabel(item)}`}
                   style={
                     {
                       "--media-card-image": `linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.44)), url("${withBasePath(item.image)}")`,
@@ -1151,16 +1293,20 @@ export default function Home() {
                     <p className="media-side-title">{item.title}</p>
                     <p className="media-side-meta">{item.meta}</p>
                   </div>
-                </article>
+                  <span className="media-card-action">{getMediaActionLabel(item)}</span>
+                </button>
               ))}
             </div>
 
             {mediaGalleryItems.length > 0 ? (
               <div className={`media-side-list media-gallery-${activeMediaIndex + 1}`}>
                 {mediaGalleryItems.map((item, index) => (
-                  <article
+                  <button
                     key={`${activeMediaMode.name}-${item.title}`}
-                    className={`media-side-card media-side-${activeMediaIndex + 1}-${index + 1}`}
+                    type="button"
+                    className={`media-card-button media-side-card media-side-${activeMediaIndex + 1}-${index + 1}`}
+                    onClick={() => openMediaAsset(mediaEntries[index + mediaFeatureCount + 1])}
+                    aria-label={`${item.title}. ${getMediaActionLabel(item)}`}
                     style={
                       {
                         "--media-card-image": `linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.44)), url("${withBasePath(item.image)}")`,
@@ -1172,7 +1318,8 @@ export default function Home() {
                       <p className="media-side-title">{item.title}</p>
                       <p className="media-side-meta">{item.meta}</p>
                     </div>
-                  </article>
+                    <span className="media-card-action">{getMediaActionLabel(item)}</span>
+                  </button>
                 ))}
               </div>
             ) : null}
@@ -1188,6 +1335,108 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {activeLightboxEntry && (
+        <div className="media-lightbox-backdrop" onClick={closeMediaLightbox}>
+          <div
+            className="media-lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeLightboxEntry.title}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="media-lightbox-stage">
+              <div className="media-lightbox-overlay">
+                <div className="media-lightbox-topbar">
+                  <div className="media-lightbox-heading">
+                    <h3 className="media-lightbox-ridge-title">{activeLightboxEntry.title}</h3>
+                  </div>
+                  <div className="media-lightbox-meta">
+                    <p className="media-lightbox-subtitle">{activeLightboxEntry.meta}</p>
+                  </div>
+                  <div className="media-lightbox-actions">
+                    <a
+                      className="cta-secondary media-lightbox-action media-lightbox-action-desktop"
+                      href={withBasePath(
+                        activeLightboxEntry.download ?? activeLightboxEntry.src ?? activeLightboxEntry.image
+                      )}
+                      download={activeLightboxEntry.kind !== "external"}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t.media.labels.download}
+                    </a>
+                    <button
+                      type="button"
+                      className="cta-secondary media-lightbox-action media-lightbox-action-desktop"
+                      onClick={closeMediaLightbox}
+                    >
+                      {t.media.labels.close}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                className="media-lightbox-nav media-lightbox-nav-prev"
+                onClick={showPrevMediaAsset}
+                aria-label={t.media.labels.previous}
+              >
+                <span aria-hidden="true">←</span>
+              </button>
+
+              <div className="media-lightbox-frame">
+                {activeLightboxEntry.kind === "video" ? (
+                  <video
+                    className="media-lightbox-video"
+                    controls
+                    autoPlay
+                    playsInline
+                    poster={withBasePath(activeLightboxEntry.image)}
+                  >
+                    <source src={withBasePath(activeLightboxEntry.src ?? "")} type="video/mp4" />
+                    {t.media.labels.videoFallback}
+                  </video>
+                ) : (
+                  <Image
+                    className="media-lightbox-image"
+                    src={withBasePath(activeLightboxEntry.src ?? activeLightboxEntry.image)}
+                    alt={activeLightboxEntry.title}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 80vw"
+                    unoptimized
+                  />
+                )}
+              </div>
+
+              <div className="media-lightbox-actions media-lightbox-actions-mobile">
+                <a
+                  className="cta-secondary media-lightbox-action"
+                  href={withBasePath(activeLightboxEntry.download ?? activeLightboxEntry.src ?? activeLightboxEntry.image)}
+                  download={activeLightboxEntry.kind !== "external"}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t.media.labels.download}
+                </a>
+                <button type="button" className="cta-secondary media-lightbox-action" onClick={closeMediaLightbox}>
+                  {t.media.labels.close}
+                </button>
+              </div>
+
+              <button
+                type="button"
+                className="media-lightbox-nav media-lightbox-nav-next"
+                onClick={showNextMediaAsset}
+                aria-label={t.media.labels.next}
+              >
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showConfirmPopup && (
         <div className="popup-backdrop" onClick={closeConfirmPopup}>

@@ -698,53 +698,87 @@
     "media":  {
                   "title":  "Медиа",
                   "counterLabel":  "Режим",
+                  "labels":  {
+                                 "watch":  "Смотреть",
+                                 "open":  "Открыть",
+                                 "visit":  "Перейти",
+                                 "download":  "Скачать",
+                                 "close":  "Закрыть",
+                                 "previous":  "Предыдущий кадр",
+                                 "next":  "Следующий кадр",
+                                 "videoFallback":  "Ваш браузер не поддерживает воспроизведение видео."
+                             },
                   "modes":  [
                                 {
                                     "name":  "Скриншоты",
                                     "descriptor":  "Живые игровые кадры и ракурсы мира",
                                     "hero":  {
+                                                 "kind":  "image",
                                                  "eyebrow":  "Игровой мир",
                                                  "title":  "Живые кадры без рендера",
                                                  "copy":  "Показываем игру такой, какой ее увидит игрок: сцены мира, свет, архитектура и атмосфера без постановочной ретуши.",
                                                  "image":  "/media/hero-start-poster.webp",
+                                                 "src":  "/media/hero-start-poster.webp",
+                                                 "download":  "/media/hero-start-poster.webp",
                                                  "meta":  "4K capture",
                                                  "action":  "Открыть кадр"
                                              },
                                     "items":  [
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Титан",
                                                       "meta":  "Боевой силуэт",
-                                                      "image":  "/cards/titan.png"
+                                                      "image":  "/cards/titan.png",
+                                                      "src":  "/cards/titan.png",
+                                                      "download":  "/cards/titan.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Рыцарь",
                                                       "meta":  "Тяжелая броня",
-                                                      "image":  "/cards/knight.png"
+                                                      "image":  "/cards/knight.png",
+                                                      "src":  "/cards/knight.png",
+                                                      "download":  "/cards/knight.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Жрица",
                                                       "meta":  "Свет поддержки",
-                                                      "image":  "/cards/healer.png"
+                                                      "image":  "/cards/healer.png",
+                                                      "src":  "/cards/healer.png",
+                                                      "download":  "/cards/healer.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Маг",
                                                       "meta":  "Сценический свет",
-                                                      "image":  "/cards/mage.png"
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/cards/mage.png",
+                                                      "download":  "/cards/mage.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Разбойница",
                                                       "meta":  "Резкий ракурс",
-                                                      "image":  "/cards/rogue.png"
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/cards/rogue.png",
+                                                      "download":  "/cards/rogue.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Колдун",
                                                       "meta":  "Темная палитра",
-                                                      "image":  "/cards/sorcerer.png"
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/cards/sorcerer.png",
+                                                      "download":  "/cards/sorcerer.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Город ночью",
                                                       "meta":  "Мир и атмосфера",
-                                                      "image":  "/media/hero-start-poster.webp"
+                                                      "image":  "/media/hero-start-poster.webp",
+                                                      "src":  "/media/hero-start-poster.webp",
+                                                      "download":  "/media/hero-start-poster.webp"
                                                   }
                                               ]
                                 },
@@ -752,28 +786,40 @@
                                     "name":  "Видео",
                                     "descriptor":  "Трейлеры, тизеры и геймплейные ролики",
                                     "hero":  {
+                                                 "kind":  "video",
                                                  "eyebrow":  "Официальный ролик",
                                                  "title":  "Стартовый трейлер проекта",
                                                  "copy":  "Крупный видео-экран для трейлеров и длинных геймплейных отрывков, с которыми пользователь знакомится первым.",
                                                  "image":  "/media/hero-start-poster.webp",
+                                                 "src":  "/media/hero-start.mp4",
+                                                 "download":  "/media/hero-start.mp4",
                                                  "meta":  "Trailer / 01:24",
                                                  "action":  "Смотреть"
                                              },
                                     "items":  [
                                                   {
+                                                      "kind":  "video",
                                                       "title":  "Тизер обновления",
                                                       "meta":  "00:32",
-                                                      "image":  "/cards/mage.png"
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
                                                   },
                                                   {
+                                                      "kind":  "video",
                                                       "title":  "Пролет по миру",
                                                       "meta":  "01:08",
-                                                      "image":  "/cards/sorcerer.png"
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
                                                   },
                                                   {
+                                                      "kind":  "video",
                                                       "title":  "Бой крупным планом",
                                                       "meta":  "00:48",
-                                                      "image":  "/cards/rogue.png"
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
                                                   }
                                               ]
                                 },
@@ -781,33 +827,48 @@
                                     "name":  "Обои",
                                     "descriptor":  "Постановочные арты и ultra-shot материалы",
                                     "hero":  {
+                                                 "kind":  "image",
                                                  "eyebrow":  "Art drop",
                                                  "title":  "Обои для рабочего стола",
                                                  "copy":  "Отдельный режим для предрендеренных кадров и ultra-shot материалов, которые можно использовать как официальные обои проекта.",
                                                  "image":  "/cards/sorcerer.png",
+                                                 "src":  "/cards/sorcerer.png",
+                                                 "download":  "/cards/sorcerer.png",
                                                  "meta":  "3840 x 2160",
                                                  "action":  "Скачать"
                                              },
                                     "items":  [
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Колдун",
                                                       "meta":  "Desktop 4K",
-                                                      "image":  "/cards/sorcerer.png"
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/cards/sorcerer.png",
+                                                      "download":  "/cards/sorcerer.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Маг",
                                                       "meta":  "Desktop 4K",
-                                                      "image":  "/cards/mage.png"
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/cards/mage.png",
+                                                      "download":  "/cards/mage.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Разбойница",
                                                       "meta":  "Desktop 4K",
-                                                      "image":  "/cards/rogue.png"
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/cards/rogue.png",
+                                                      "download":  "/cards/rogue.png"
                                                   },
                                                   {
+                                                      "kind":  "image",
                                                       "title":  "Жрица",
                                                       "meta":  "Desktop 4K",
-                                                      "image":  "/cards/healer.png"
+                                                      "image":  "/cards/healer.png",
+                                                      "src":  "/cards/healer.png",
+                                                      "download":  "/cards/healer.png"
                                                   }
                                               ]
                                 },
@@ -815,38 +876,50 @@
                                     "name":  "Партнеры",
                                     "descriptor":  "Материалы о проекте от медиа-партнеров",
                                     "hero":  {
+                                                 "kind":  "external",
                                                  "eyebrow":  "Media relay",
                                                  "title":  "Внешние материалы о проекте",
                                                  "copy":  "Отдельная витрина под видео и обзоры от партнерских площадок: YouTube, Twitch, VK и других внешних медиа.",
                                                  "image":  "/media/hero-start-poster.webp",
+                                                 "href":  "https://www.youtube.com",
                                                  "meta":  "YouTube / Twitch / VK",
                                                  "action":  "Перейти"
                                              },
                                     "items":  [
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Разбор миграции",
                                                       "meta":  "YouTube · StormVeil",
-                                                      "image":  "/cards/knight.png"
+                                                      "image":  "/cards/knight.png",
+                                                      "href":  "https://www.youtube.com"
                                                   },
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Стрим по новому миру",
                                                       "meta":  "Twitch · LunaCore",
-                                                      "image":  "/cards/healer.png"
+                                                      "image":  "/cards/healer.png",
+                                                      "href":  "https://www.twitch.tv"
                                                   },
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Промо для сообщества",
                                                       "meta":  "VK · IronShade",
-                                                      "image":  "/cards/titan.png"
+                                                      "image":  "/cards/titan.png",
+                                                      "href":  "https://vk.com"
                                                   },
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Видео для аудитории",
                                                       "meta":  "YouTube · HexNova",
-                                                      "image":  "/cards/mage.png"
+                                                      "image":  "/cards/mage.png",
+                                                      "href":  "https://www.youtube.com"
                                                   },
                                                   {
+                                                      "kind":  "external",
                                                       "title":  "Обзор патча",
                                                       "meta":  "VK · AsterVox",
-                                                      "image":  "/cards/sorcerer.png"
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "href":  "https://vk.com"
                                                   }
                                               ]
                                 }
