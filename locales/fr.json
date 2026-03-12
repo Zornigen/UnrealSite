@@ -1,0 +1,952 @@
+﻿{
+    "aria":  {
+                 "socialLinks":  "liens sociaux",
+                 "sectionNavigation":  "navigation dans les sections",
+                 "compareSlider":  "Curseur de comparaison"
+             },
+    "sections":  [
+                     {
+                         "id":  "hero",
+                         "label":  "Commencer"
+                     },
+                     {
+                         "id":  "new-world",
+                         "label":  "Nouveau Monde"
+                     },
+                     {
+                         "id":  "classes",
+                         "label":  "Cours"
+                     },
+                     {
+                         "id":  "content",
+                         "label":  "Contenu"
+                     },
+                     {
+                         "id":  "roadmap",
+                         "label":  "Feuille de route"
+                     },
+                     {
+                         "id":  "prereg",
+                         "label":  "Application"
+                     },
+                     {
+                         "id":  "media",
+                         "label":  "Médias"
+                     }
+                 ],
+    "social":  [
+                   {
+                       "label":  "Ds",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Tg",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Yt",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Vk",
+                       "href":  "#"
+                   }
+               ],
+    "hero":  {
+                 "ariaTitle":  "DERNIER CHAOS IRRÉEL",
+                 "title":  {
+                               "desktopTop":  "Irréel",
+                               "desktopBottom":  "DernierChaoS",
+                               "mobileTop":  "Irréel",
+                               "mobileBottom":  "DernierChaoS"
+                           },
+                 "subtitle":  "Une renaissance de l’ancien monde grâce aux possibilités technologiques modernes.",
+                 "timerLabels":  [
+                                     "Jours",
+                                     "Heures",
+                                     "Minutes",
+                                     "Secondes"
+                                 ],
+                 "cta":  {
+                             "support":  "Soutien",
+                             "prereg":  "Pré-inscription",
+                             "about":  "À propos"
+                         },
+                 "badge":  {
+                               "pairs":  [
+                                             {
+                                                 "old":  "Moteur sérieux 1.5",
+                                                 "new":  "Moteur irréel 5.7"
+                                             },
+                                             {
+                                                 "old":  "DirectX 8.1",
+                                                 "new":  "DirectX12"
+                                             },
+                                             {
+                                                 "old":  "Nuanciers ASCII",
+                                                 "new":  "Shaders HLSL"
+                                             },
+                                             {
+                                                 "old":  "Particules de processeur",
+                                                 "new":  "Niagara FX"
+                                             },
+                                             {
+                                                 "old":  "Éclairage cuit au four",
+                                                 "new":  "Lumière gastro-intestinale"
+                                             }
+                                         ]
+                           }
+             },
+    "prereg":  {
+                   "title":  "Pré-inscription",
+                   "kicker":  "Joueurs inscrits",
+                   "emailPlaceholder":  "Entrez l\u0027e-mail",
+                   "submit":  "Soumettre",
+                   "pending":  "Vérification...",
+                   "rewards":  "Chaque pseudo pré-enregistré recevra le titre \"One of the First\" après avoir atteint le niveau 50.",
+                   "errors":  {
+                                  "required":  "Entrez un e-mail pour continuer.",
+                                  "invalid":  "Entrez une adresse e-mail valide."
+                              }
+               },
+    "support":  {
+                    "cta":  "Gratitude",
+                    "kicker":  "Dollars donnés",
+                    "amountPlaceholder":  "Entrez le montant",
+                    "pending":  "Envoi...",
+                    "description":  "Tous les fonds donnés seront dépensés pour la campagne marketing.",
+                    "success":  "Montant ${amount} enregistré. Un véritable flux de paiement peut ensuite être connecté.",
+                    "errors":  {
+                                   "required":  "Entrez un montant de don.",
+                                   "invalid":  "Le montant minimum du don est de 10 $."
+                               }
+                },
+    "participants":  {
+                         "title":  "Participants"
+                     },
+    "newWorld":  {
+                     "title":  "Nouveau Monde : avant et après",
+                     "before":  "Avant : Serious Engine 1.5",
+                     "after":  "Après : Unreal Engine 5.7",
+                     "pairs":  [
+                                   "Port",
+                                   "Citadelle",
+                                   "Plaines",
+                                   "Vallée"
+                               ]
+                 },
+    "classes":  {
+                    "title":  "Cours",
+                    "kicker":  "Choisissez la force qui vous transportera dans le nouveau monde",
+                    "items":  [
+                                  {
+                                      "name":  "Titan",
+                                      "role":  "Briseur de première ligne",
+                                      "sigil":  "T",
+                                      "tagline":  "Un guerrier de mêlée lourd construit autour de la force et de l\u0027endurance.",
+                                      "description":  "Titan in Last Chaos s\u0027appuie sur la force brute et une grande endurance. La classe de base utilise une hache et, au niveau 31, elle se ramifie en Highlander ou Warmaster.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Highlander",
+                                                              "role":  "Hache et dégâts physiques maximum",
+                                                              "description":  "Highlander conserve la hache, obtient certaines des attaques physiques les plus élevées du jeu, plusieurs attaques AoE, des outils de ralentissement et l\u0027auto-buff Perfect Body qui se déclenche en dessous de 70 % de HP.",
+                                                              "focus":  [
+                                                                            "Hache",
+                                                                            "Dégâts de zone",
+                                                                            "Corps parfait"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Hache"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Mêlée"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Maître de guerre",
+                                                              "role":  "Épée, HP et contrôle de groupe",
+                                                              "description":  "Warmaster se bat avec une épée, attaque plus rapidement, possède les PV de base et la régénération de HP les plus élevés et ajoute une pression de zone, des étourdissements, des ralentissements et des buffs de soutien au groupe.",
+                                                              "focus":  [
+                                                                            "Épée",
+                                                                            "Étourdir et ralentir",
+                                                                            "Les fêtards"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Épée"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Mêlée"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Arme",
+                                                        "value":  "Hache"
+                                                    },
+                                                    {
+                                                        "label":  "Combat",
+                                                        "value":  "Mêlée"
+                                                    },
+                                                    {
+                                                        "label":  "31+ emplois",
+                                                        "value":  "HL/WM"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Force et endurance",
+                                                     "Mêlée lourde",
+                                                     "Répartition des tâches de niveau 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Chevalier",
+                                      "role":  "Gardien de formation",
+                                      "sigil":  "K",
+                                      "tagline":  "Un combattant de mêlée discipliné construit autour de la défense et de la tactique.",
+                                      "description":  "Knight in Last Chaos est une classe à courte portée durable axée sur la protection et les compétences de combat. Au niveau 31, il se ramifie en Royal Knight ou Templar Knight.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Chevalier Royal",
+                                                              "role":  "Doubles épées et duelliste mobile",
+                                                              "description":  "Royal Knight est connu pour se battre avec deux épées, une vitesse de déplacement élevée, une attaque et une défense puissantes, des étourdissements ennemis et un buff de taux de réussite du groupe.",
+                                                              "focus":  [
+                                                                            "Épées doubles",
+                                                                            "Étourdir",
+                                                                            "Buff du taux de réussite"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Lames"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Mêlée"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Chevalier Templier",
+                                                              "role":  "Épée et bouclier, défense maximale",
+                                                              "description":  "Templar Knight utilise une épée et un bouclier, possède une défense très élevée, de nombreux outils de soutien allié et une attaque inférieure à celle de Royal Knight tout en ajoutant une réduction de la défense élémentaire.",
+                                                              "focus":  [
+                                                                            "Épée et bouclier",
+                                                                            "Soutien au parti",
+                                                                            "Débuff élémentaire"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Épée et bouclier"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Mêlée"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Arme",
+                                                        "value":  "Épée"
+                                                    },
+                                                    {
+                                                        "label":  "Combat",
+                                                        "value":  "Mêlée"
+                                                    },
+                                                    {
+                                                        "label":  "31+ emplois",
+                                                        "value":  "RK/TK"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Défense et tactique",
+                                                     "Contrôle de première ligne",
+                                                     "Répartition des tâches de niveau 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Guérisseur",
+                                      "role":  "Coeur de la fête",
+                                      "sigil":  "H",
+                                      "tagline":  "Une classe légère à distance qui guérit et protège grâce au mana.",
+                                      "description":  "Le guérisseur de Last Chaos utilise le mana pour soigner la magie et porte une armure légère, ce qui rend la classe vulnérable en combat direct. Ses armes de base sont le sceptre ou l\u0027arc, et au niveau 31, il se transforme en Clerc ou Archer.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Clerc",
+                                                              "role":  "Fortes guérisons et buffs",
+                                                              "description":  "Cleric est un puissant guérisseur et magicien qui peut restaurer les alliés, supprimer les affaiblissements, étourdir les ennemis et fournir plusieurs buffs de protection, y compris le support EXP et SP.",
+                                                              "focus":  [
+                                                                            "Guérison",
+                                                                            "Suppression des débuffs",
+                                                                            "Buffs"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Sceptre"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "À distance"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Archer",
+                                                              "role":  "Délit de fuite à distance",
+                                                              "description":  "Archer est la branche agile avec un arc, conçue pour la pression à distance, les coups multi-cibles, l\u0027étourdissement jusqu\u0027à cinq ennemis, le silence, les ralentissements et la prise en charge HP/MP des alliés.",
+                                                              "focus":  [
+                                                                            "Arc",
+                                                                            "Étourdir / ralentir",
+                                                                            "Prise en charge HP/MP"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Arc"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "À distance"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Arme",
+                                                        "value":  "Sceptre / Arc"
+                                                    },
+                                                    {
+                                                        "label":  "Combat",
+                                                        "value":  "À distance"
+                                                    },
+                                                    {
+                                                        "label":  "31+ emplois",
+                                                        "value":  "CL/AR"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Guérison et protection",
+                                                     "Armure légère",
+                                                     "Répartition des tâches de niveau 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Mage",
+                                      "role":  "Dévastation à distance",
+                                      "sigil":  "M",
+                                      "tagline":  "Une classe magique à distance construite autour des dégâts de mana et des malédictions.",
+                                      "description":  "Mage in Last Chaos étudie les forces du mal et inflige de lourds dégâts magiques, mais a une faible défense physique. Ses armes de base sont la baguette ou le bâton, et au niveau 31, elle se transforme en sorcière ou sorcier.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Sorcière",
+                                                              "role":  "Malédictions et contrôle",
+                                                              "description":  "La sorcière utilise une baguette et se penche sur les malédictions, la pétrification, l\u0027aveuglement, le sommeil, la suppression des buffs et la perte de HP. Les guides de classe le décrivent comme une branche lourde de débuffs avec une réduction de la défense élémentaire.",
+                                                              "focus":  [
+                                                                            "Malédictions",
+                                                                            "Pétrifier / dormir",
+                                                                            "Suppression du buff"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Baguette magique"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "À distance"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Magicien",
+                                                              "role":  "Bâton et AoE lourde",
+                                                              "description":  "Wizard utilise un bâton pour une puissance magique par coup plus élevée, plusieurs attaques AoE élémentaires et une compétence dédiée à la récupération de mana. C\u0027est la branche la plus puissante en matière de dégâts de masse.",
+                                                              "focus":  [
+                                                                            "Personnel",
+                                                                            "Zone d\u0027effet élémentaire",
+                                                                            "Récupération de mana"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Personnel"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "À distance"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Arme",
+                                                        "value":  "Baguette / Bâton"
+                                                    },
+                                                    {
+                                                        "label":  "Combat",
+                                                        "value":  "À distance"
+                                                    },
+                                                    {
+                                                        "label":  "31+ emplois",
+                                                        "value":  "WT/WZ"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Dégâts magiques élevés",
+                                                     "Faible défense",
+                                                     "Répartition des tâches de niveau 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Voyou",
+                                      "role":  "Assassin de l\u0027arrière-plan",
+                                      "sigil":  "R",
+                                      "tagline":  "Un cours physique rapide construit autour du camouflage et de l\u0027invisibilité.",
+                                      "description":  "Rogue in Last Chaos se cache, flanque et attaque avec une arbalète ou des poignards. C\u0027est une classe agile avec un rythme de combat rapide qui se transforme en Assassin ou Ranger au niveau 31.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Assassin",
+                                                              "role":  "Dagues et élimination de cibles",
+                                                              "description":  "L\u0027assassin utilise deux dagues, peut les lancer furtivement, piéger les cibles, feindre la mort et laisser tomber l\u0027aggro des monstres. Les guides le positionnent comme la branche directe à cible unique.",
+                                                              "focus":  [
+                                                                            "Dagues",
+                                                                            "Piège",
+                                                                            "Feindre la mort"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Dagues"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Mêlée"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Ranger",
+                                                              "role":  "Arbalète et haute précision",
+                                                              "description":  "Ranger utilise une arbalète pour attaquer à une distance plus sûre, a un taux de réussite très élevé et ajoute des étourdissements, des pièges, une invisibilité et des auto-buffs pour l\u0027attaque et la précision.",
+                                                              "focus":  [
+                                                                            "Arbalète",
+                                                                            "Taux de réussite élevé",
+                                                                            "Étourdissement / invisibilité"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Arbalète"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "À distance"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Arme",
+                                                        "value":  "Dagues / Arbalète"
+                                                    },
+                                                    {
+                                                        "label":  "Combat",
+                                                        "value":  "Mêlée/à distance"
+                                                    },
+                                                    {
+                                                        "label":  "31+ emplois",
+                                                        "value":  "AS/IA"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Camouflage",
+                                                     "Grande vitesse",
+                                                     "Répartition des tâches de niveau 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Sorcier",
+                                      "role":  "Ritualiste sombre",
+                                      "sigil":  "S",
+                                      "tagline":  "Une classe élémentaire haut-elfe construite autour des invocations et du choix de positions.",
+                                      "description":  "Le sorcier de Last Chaos invoque des élémentaires et utilise le pouvoir des quatre éléments pour attaquer. La classe peut opérer à courte ou longue distance avec une faux ou une arme de chute, puis se transforme en élémentaliste ou spécialiste au niveau 31.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Élémentaliste",
+                                                              "role":  "Esprits et fallarm",
+                                                              "description":  "L\u0027élémentaliste conserve le style de jeu axé sur l\u0027invocation, utilise une arme de chute et se bat à travers des esprits, des AoE et des attaques élémentaires. Les guides de classe le considèrent comme l\u0027un des travaux les plus difficiles de LC.",
+                                                              "focus":  [
+                                                                            "Élémentaires",
+                                                                            "Arme de chute",
+                                                                            "Zone d\u0027Entrée"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Arme de chute"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Mêlée"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Spécialiste",
+                                                              "role":  "Transformations et faux",
+                                                              "description":  "Le spécialiste abandonne les élémentaires en échange de transformations en forme de chevalier ou en forme de démon. Il est connu pour son évasion élevée, son taux de critique élevé et ses attaques rapides.",
+                                                              "focus":  [
+                                                                            "Forme de chevalier",
+                                                                            "Forme démoniaque",
+                                                                            "Faux"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Arme",
+                                                                                "value":  "Faux"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Combat",
+                                                                                "value":  "Mixte"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Arme",
+                                                        "value":  "Faux / Arme de chute"
+                                                    },
+                                                    {
+                                                        "label":  "Combat",
+                                                        "value":  "Mêlée/à distance"
+                                                    },
+                                                    {
+                                                        "label":  "31+ emplois",
+                                                        "value":  "EL/SP"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Éléments et convocations",
+                                                     "Gamme flexible",
+                                                     "Répartition des tâches de niveau 31"
+                                                 ]
+                                  }
+                              ]
+                },
+    "content":  {
+                    "title":  "Contenu",
+                    "items":  [
+                                  {
+                                      "name":  "Guildes",
+                                      "eyebrow":  "POUVOIR COMMUNAUTAIRE",
+                                      "subtitle":  "Plus qu\u0027un tag au-dessus de votre tête : une grande structure de combat avec un réel poids dans le monde.",
+                                      "bullets":  [
+                                                      "Jusqu\u0027à 100 joueurs sous une même bannière",
+                                                      "Hiérarchie, rôles et coordination constante",
+                                                      "La base des sièges, du PvP et du jeu en groupe à long terme"
+                                                  ],
+                                      "factLabel":  "Échelle",
+                                      "factValue":  "Jusqu\u0027à 100 joueurs",
+                                      "highlights":  [
+                                                         "Alliance",
+                                                         "Hiérarchie",
+                                                         "Échelle"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "PvP",
+                                      "eyebrow":  "CONFLIT EN DIRECT",
+                                      "subtitle":  "Un monde où le danger ne vient pas seulement des monstres, mais aussi des autres joueurs.",
+                                      "bullets":  [
+                                                      "Conflits ouverts sans longue configuration",
+                                                      "Tension constante et risque de contact soudain",
+                                                      "Duels, chasse et rivalités personnelles dans l\u0027ambiance"
+                                                  ],
+                                      "factLabel":  "Mode",
+                                      "factValue":  "Conflit ouvert",
+                                      "highlights":  [
+                                                         "Duels",
+                                                         "Chasse",
+                                                         "Risque"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Sièges",
+                                      "eyebrow":  "GUERRE D\u0027INFLUENCE",
+                                      "subtitle":  "Il ne s’agit pas d’une escarmouche locale, mais d’une guerre majeure où la pression du front se fait sentir partout.",
+                                      "bullets":  [
+                                                      "Batailles pour les points clés et le contrôle de l\u0027espace",
+                                                      "La victoire dépend autant de la formation que de la puissance brute",
+                                                      "Une seule erreur de positionnement peut renverser tout le combat"
+                                                  ],
+                                      "factLabel":  "Format",
+                                      "factValue":  "Guerre de guilde de masse",
+                                      "highlights":  [
+                                                         "Première ligne",
+                                                         "Capturer",
+                                                         "Contrôle"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Tournois",
+                                      "eyebrow":  "RYTHME COMPÉTITIF",
+                                      "subtitle":  "Un rythme compétitif récurrent qui rassemble les joueurs les plus forts dans les délais.",
+                                      "bullets":  [
+                                                      "Lancement automatique chaque week-end sans configuration manuelle",
+                                                      "Un cycle d’entrée clair et une véritable énergie événementielle",
+                                                      "Un lieu où les constructions et la préparation parlent d\u0027elles-mêmes"
+                                                  ],
+                                      "factLabel":  "Lancement",
+                                      "factValue":  "Automatique le week-end",
+                                      "highlights":  [
+                                                         "Arène",
+                                                         "Classement",
+                                                         "Prestige"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Patrons",
+                                      "eyebrow":  "CHASSE EN GROUPE",
+                                      "subtitle":  "Des rencontres lourdes où la force brute sans discipline se transforme vite en échec.",
+                                      "bullets":  [
+                                                      "Des patrons puissants avec un coût élevé pour chaque erreur",
+                                                      "Le timing, les rôles et la discipline de groupe comptent plus que les dégâts aléatoires",
+                                                      "Le sentiment d\u0027une vraie chasse au lieu du PvE de routine"
+                                                  ],
+                                      "factLabel":  "Type de combat",
+                                      "factValue":  "Rencontres PvE en groupe",
+                                      "highlights":  [
+                                                         "Chasse",
+                                                         "Rôles",
+                                                         "Timing"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Artisanat",
+                                      "eyebrow":  "ÉCONOMIE MONDIALE",
+                                      "subtitle":  "Croissance des matériaux, de la production et des équipements qui affectent directement la valeur de ce que vous gagnez.",
+                                      "bullets":  [
+                                                      "Rassembler des ressources et les transformer en matériaux utiles",
+                                                      "Créer des objets et améliorer l\u0027équipement",
+                                                      "Un lien direct entre le butin, la progression et l\u0027économie du joueur"
+                                                  ],
+                                      "factLabel":  "Système",
+                                      "factValue":  "Production et valorisation",
+                                      "highlights":  [
+                                                         "Ressources",
+                                                         "Production",
+                                                         "Progrès"
+                                                     ]
+                                  }
+                              ]
+                },
+    "roadmap":  {
+                    "title":  "Feuille de route pour la migration",
+                    "completedLabel":  "Phase terminée",
+                    "currentLabel":  "Objectif actuel",
+                    "inProgressLabel":  "En cours",
+                    "steps":  [
+                                  {
+                                      "title":  "Audit technique",
+                                      "desc":  "Audit de la base de code et du pipeline d\u0027actifs",
+                                      "detail":  "Nous décomposons le projet dans ses fondements : le code, les ressources, les outils, les dépendances héritées et toutes les connexions cachées qui ont permis au monde du jeu de fonctionner au fil des ans. Cette phase garantit qu\u0027aucun système critique n\u0027est perdu lors de la migration et que chaque étape suivante est construite sur une carte précise du monde plutôt que sur des conjectures. Nous identifions ici les goulots d\u0027étranglement techniques, les zones logiques à risque, les solutions obsolètes et les éléments qui ne devraient pas simplement être déplacés mais considérablement renforcés au sein de la nouvelle architecture. Dans la pratique, l’audit transforme la migration d’un saut dangereux en une offensive contrôlée, où chaque détail est connu à l’avance et chaque décision future est étayée par des preuves.",
+                                      "done":  true
+                                  },
+                                  {
+                                      "title":  "Migration de base",
+                                      "desc":  "Migration des serveurs et de la logique de combat",
+                                      "detail":  "L\u0027architecture du serveur, la logique de combat et les règles fondamentales du jeu sont déplacées dans le nouvel environnement sans perdre l\u0027esprit de l\u0027original. C\u0027est là que nous préservons le cœur du projet afin qu\u0027Unreal renforce le jeu au lieu d\u0027effacer son identité. Le but n\u0027est pas seulement de faire fonctionner les systèmes, mais de préserver le rythme des combats, la fluidité de la progression et la logique interne du monde que les joueurs connaissent déjà par instinct. Nous élevons les fondations du projet à un niveau technique plus élevé afin que sous le capot, tout devienne plus solide, plus propre et plus stable, tandis qu\u0027en surface, on a toujours l\u0027impression que les joueurs de LastChaos se souviennent, mais sans les anciennes limitations. C’est la phase où se forge la force structurelle du nouveau monde.",
+                                      "done":  true
+                                  },
+                                  {
+                                      "title":  "Refonte visuelle",
+                                      "desc":  "Matériaux, éclairage et post-effets",
+                                      "detail":  "Le vieux monde reçoit un nouveau corps : des matériaux modernes, une lumière vivante, des ombres atmosphériques et une profondeur cinématographique. Notre objectif n\u0027est pas seulement de rafraîchir les visuels, mais de révéler des lieux familiers comme s\u0027ils étaient toujours censés ressembler à cela. Nous reconstruisons la sensation d\u0027espace elle-même : comment le métal capte la lumière, comment la pierre ancienne se lit dans l\u0027ombre, comment le brouillard adoucit la distance et comment la lumière du soleil se dépose sur l\u0027architecture, les champs et l\u0027eau. Cette phase n\u0027est pas seulement une question de beauté, mais aussi d\u0027impact émotionnel, de transformation d\u0027un lieu connu en un cadre digne d\u0027une affiche de bande-annonce. La refonte visuelle doit prouver qu\u0027Unreal change non seulement la coque du projet, mais aussi la façon dont le monde est perçu dans chaque scène.",
+                                      "done":  false,
+                                      "inProgress":  true
+                                  },
+                                  {
+                                      "title":  "Bêta fermée",
+                                      "desc":  "Tests à accès limité",
+                                      "detail":  "C\u0027est le moment où les premiers joueurs entrent dans le nouveau monde pour tester la stabilité, l\u0027équilibre et la sensation générale de l\u0027expérience. Le projet cesse ici d\u0027être une construction interne et commence à prouver sa force au contact direct avec la communauté. La bêta fermée n\u0027est pas une étape cérémonielle, mais un véritable essai sous pression : comment se déroule le combat au fil du temps, où le rythme s\u0027affaiblit, ce qui casse pendant de longues sessions et quels détails sont remarqués par les vrais joueurs plutôt que par l\u0027œil d\u0027un développeur. C\u0027est là que nous recevons les retours les plus honnêtes possibles, ceux qui séparent une présentation impressionnante d\u0027un monde de jeu vraiment prêt. Il s\u0027agit d\u0027une phase de perfectionnement au contact de la communauté, où le projet fait face à son premier véritable test.",
+                                      "done":  false
+                                  },
+                                  {
+                                      "title":  "Préparation de la sortie",
+                                      "desc":  "Optimisation et versions de version",
+                                      "detail":  "Peaufinage final, optimisation, correctifs du dernier kilomètre et préparation des versions de version. Il ne s\u0027agit pas seulement du lancement d\u0027une autre version, mais de la transition officielle vers la prochaine ère d\u0027Unreal LastChaos. À ce stade, tout doit fonctionner comme un tout : les performances, la stabilité, la qualité visuelle, l’UX et le sentiment que chaque élément est complet et délibéré. Nous poussons la construction à un état où elle ne ressemble plus à une expérience ambitieuse, mais à un nouveau chapitre complet du projet. C’est à ce moment-là que la migration cesse d’être un processus interne d’équipe et devient un fait public : le monde renaît, la nouvelle technologie a été revendiquée, et ce qui nous attend n’est plus la transition, mais la vie de la prochaine version du jeu.",
+                                      "done":  false
+                                  }
+                              ]
+                },
+    "media":  {
+                  "title":  "Médias",
+                  "counterLabel":  "Mode",
+                  "labels":  {
+                                 "watch":  "Montre",
+                                 "open":  "Ouvrir",
+                                 "visit":  "Visite",
+                                 "download":  "Download",
+                                 "close":  "Fermer",
+                                 "previous":  "Image précédente",
+                                 "next":  "Image suivante",
+                                 "videoFallback":  "Votre navigateur ne prend pas en charge la balise vidéo."
+                             },
+                  "modes":  [
+                                {
+                                    "name":  "Captures d\u0027écran",
+                                    "descriptor":  "Cadres de jeu en direct et angles du monde",
+                                    "hero":  {
+                                                 "kind":  "image",
+                                                 "eyebrow":  "Monde en jeu",
+                                                 "title":  "Images en direct sans rendu poli",
+                                                 "copy":  "Le jeu présenté tel que les joueurs le verront réellement : scènes du monde, éclairage, architecture et atmosphère sans retouches scéniques.",
+                                                 "image":  "/media/hero-start-poster.webp",
+                                                 "src":  "/media/hero-start-poster.webp",
+                                                 "download":  "/media/hero-start-poster.webp",
+                                                 "meta":  "Capture 4K",
+                                                 "action":  "Cadre ouvert"
+                                             },
+                                    "items":  [
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Titan",
+                                                      "meta":  "Silhouette de bataille",
+                                                      "image":  "/cards/titan.png",
+                                                      "src":  "/cards/titan.png",
+                                                      "download":  "/cards/titan.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Chevalier",
+                                                      "meta":  "Armure lourde",
+                                                      "image":  "/cards/knight.png",
+                                                      "src":  "/cards/knight.png",
+                                                      "download":  "/cards/knight.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Guérisseur",
+                                                      "meta":  "Lumière de soutien",
+                                                      "image":  "/cards/healer.png",
+                                                      "src":  "/cards/healer.png",
+                                                      "download":  "/cards/healer.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Mage",
+                                                      "meta":  "Éclairage de scène",
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/cards/mage.png",
+                                                      "download":  "/cards/mage.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Voyou",
+                                                      "meta":  "Angle aigu",
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/cards/rogue.png",
+                                                      "download":  "/cards/rogue.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Sorcier",
+                                                      "meta":  "Palette sombre",
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/cards/sorcerer.png",
+                                                      "download":  "/cards/sorcerer.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Ville la nuit",
+                                                      "meta":  "Ambiance mondiale",
+                                                      "image":  "/media/hero-start-poster.webp",
+                                                      "src":  "/media/hero-start-poster.webp",
+                                                      "download":  "/media/hero-start-poster.webp"
+                                                  }
+                                              ]
+                                },
+                                {
+                                    "name":  "Vidéo",
+                                    "descriptor":  "Bandes-annonces, teasers et gameplay rolls",
+                                    "hero":  {
+                                                 "kind":  "video",
+                                                 "eyebrow":  "Bobine officielle",
+                                                 "title":  "Bande-annonce de lancement du projet",
+                                                 "copy":  "Une grande scène vidéo pour les bandes-annonces et les éléments de gameplay plus longs qui devraient d\u0027abord présenter le projet.",
+                                                 "image":  "/media/hero-start-poster.webp",
+                                                 "src":  "/media/hero-start.mp4",
+                                                 "download":  "/media/hero-start.mp4",
+                                                 "meta":  "Bande-annonce / 01:24",
+                                                 "action":  "Montre"
+                                             },
+                                    "items":  [
+                                                  {
+                                                      "kind":  "video",
+                                                      "title":  "Mise à jour du teaser",
+                                                      "meta":  "00:32",
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
+                                                  },
+                                                  {
+                                                      "kind":  "video",
+                                                      "title":  "Survol du monde",
+                                                      "meta":  "01:08",
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
+                                                  },
+                                                  {
+                                                      "kind":  "video",
+                                                      "title":  "Gros plan sur les combats",
+                                                      "meta":  "00:48",
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
+                                                  }
+                                              ]
+                                },
+                                {
+                                    "name":  "Fonds d\u0027écran",
+                                    "descriptor":  "Art pré-rendu et matériaux ultra-shot",
+                                    "hero":  {
+                                                 "kind":  "image",
+                                                 "eyebrow":  "Goutte d\u0027art",
+                                                 "title":  "Fonds d\u0027écran",
+                                                 "copy":  "Un mode séparé pour les images pré-rendues et les matériaux ultra-shots qui peuvent fonctionner comme fonds d\u0027écran officiels du projet.",
+                                                 "image":  "/cards/sorcerer.png",
+                                                 "src":  "/cards/sorcerer.png",
+                                                 "download":  "/cards/sorcerer.png",
+                                                 "meta":  "3840 x 2160",
+                                                 "action":  "Télécharger"
+                                             },
+                                    "items":  [
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Sorcier",
+                                                      "meta":  "Bureau 4K",
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/cards/sorcerer.png",
+                                                      "download":  "/cards/sorcerer.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Mage",
+                                                      "meta":  "Bureau 4K",
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/cards/mage.png",
+                                                      "download":  "/cards/mage.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Voyou",
+                                                      "meta":  "Bureau 4K",
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/cards/rogue.png",
+                                                      "download":  "/cards/rogue.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Guérisseur",
+                                                      "meta":  "Bureau 4K",
+                                                      "image":  "/cards/healer.png",
+                                                      "src":  "/cards/healer.png",
+                                                      "download":  "/cards/healer.png"
+                                                  }
+                                              ]
+                                },
+                                {
+                                    "name":  "Partenaires",
+                                    "descriptor":  "Couverture du projet par les partenaires médias",
+                                    "hero":  {
+                                                 "kind":  "external",
+                                                 "eyebrow":  "Relais Média",
+                                                 "title":  "Couverture externe du projet",
+                                                 "copy":  "Une étagère dédiée aux vidéos et à la couverture des plateformes partenaires : YouTube, Twitch, VK et autres médias extérieurs.",
+                                                 "image":  "/media/hero-start-poster.webp",
+                                                 "href":  "https://www.youtube.com",
+                                                 "meta":  "YouTube/Twitch/VK",
+                                                 "action":  "Ouvrir"
+                                             },
+                                    "items":  [
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Répartition de la migration",
+                                                      "meta":  "YouTube · StormVeil",
+                                                      "image":  "/cards/knight.png",
+                                                      "href":  "https://www.youtube.com"
+                                                  },
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Nouveau flux mondial",
+                                                      "meta":  "Twitch · LunaCore",
+                                                      "image":  "/cards/healer.png",
+                                                      "href":  "https://www.twitch.tv"
+                                                  },
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Promotion communautaire",
+                                                      "meta":  "VK · IronShade",
+                                                      "image":  "/cards/titan.png",
+                                                      "href":  "https://vk.com"
+                                                  },
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Fonctionnalité d\u0027audience",
+                                                      "meta":  "YouTube · HexNova",
+                                                      "image":  "/cards/mage.png",
+                                                      "href":  "https://www.youtube.com"
+                                                  },
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Présentation des correctifs",
+                                                      "meta":  "VK · AsterVox",
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "href":  "https://vk.com"
+                                                  }
+                                              ]
+                                }
+                            ]
+              },
+    "popup":  {
+                  "title":  "Confirmation",
+                  "sentPrefix":  "Code envoyé à",
+                  "bindingNote":  "Votre pseudo de pré-inscription ne sera disponible que sur le compte enregistré avec cet email. Un seul compte et un seul pseudo peuvent être enregistrés par email. La liste des pseudos pré-enregistrés sera réinitialisée le 1er janvier 2027.",
+                  "codePlaceholder":  "Code de confirmation",
+                  "nicknamePlaceholder":  "Surnom préféré",
+                  "codeHint":  "Utilisez le code de l\u0027e-mail. À l\u0027heure actuelle, nous acceptons 4 à 8 chiffres.",
+                  "nicknameHint":  "3 à 16 caractères : lettres, chiffres ou traits de soulignement.",
+                  "pending":  "Confirmation...",
+                  "successTitle":  "Pseudonyme réservé",
+                  "successPrefix":  "Surnom",
+                  "successMiddle":  "a été pré-inscrit pour",
+                  "successNicknameLabel":  "Surnom",
+                  "successEmailLabel":  "E-mail",
+                  "successClose":  "Fait",
+                  "confirm":  "Confirmer",
+                  "close":  "Fermer",
+                  "errors":  {
+                                 "codeRequired":  "Entrez le code de confirmation.",
+                                 "codeInvalid":  "Le code doit contenir 4 à 8 chiffres.",
+                                 "nicknameRequired":  "Entrez un pseudo.",
+                                 "nicknameInvalid":  "Le surnom doit comporter de 3 à 16 caractères, sans espaces ni symboles spéciaux."
+                             }
+              }
+}

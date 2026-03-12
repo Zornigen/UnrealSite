@@ -1,0 +1,952 @@
+﻿{
+    "aria":  {
+                 "socialLinks":  "soziale Links",
+                 "sectionNavigation":  "Abschnittsnavigation",
+                 "compareSlider":  "Vergleichsschieberegler"
+             },
+    "sections":  [
+                     {
+                         "id":  "hero",
+                         "label":  "Start"
+                     },
+                     {
+                         "id":  "new-world",
+                         "label":  "Neue Welt"
+                     },
+                     {
+                         "id":  "classes",
+                         "label":  "Klassen"
+                     },
+                     {
+                         "id":  "content",
+                         "label":  "Inhalt"
+                     },
+                     {
+                         "id":  "roadmap",
+                         "label":  "Roadmap"
+                     },
+                     {
+                         "id":  "prereg",
+                         "label":  "Anwendung"
+                     },
+                     {
+                         "id":  "media",
+                         "label":  "Medien"
+                     }
+                 ],
+    "social":  [
+                   {
+                       "label":  "Ds",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Tg",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Yt",
+                       "href":  "#"
+                   },
+                   {
+                       "label":  "Vk",
+                       "href":  "#"
+                   }
+               ],
+    "hero":  {
+                 "ariaTitle":  "Unwirkliches letztes Chaos",
+                 "title":  {
+                               "desktopTop":  "Unwirklich",
+                               "desktopBottom":  "LastChaoS",
+                               "mobileTop":  "Unwirklich",
+                               "mobileBottom":  "LastChaoS"
+                           },
+                 "subtitle":  "Eine Wiedergeburt der alten Welt durch moderne technologische Möglichkeiten.",
+                 "timerLabels":  [
+                                     "Tage",
+                                     "Std",
+                                     "Minuten",
+                                     "Sekunden"
+                                 ],
+                 "cta":  {
+                             "support":  "Unterstützung",
+                             "prereg":  "Voranmeldung",
+                             "about":  "Um"
+                         },
+                 "badge":  {
+                               "pairs":  [
+                                             {
+                                                 "old":  "Ernsthafte Engine 1.5",
+                                                 "new":  "Unreal Engine 5.7"
+                                             },
+                                             {
+                                                 "old":  "DirectX 8.1",
+                                                 "new":  "DirectX 12"
+                                             },
+                                             {
+                                                 "old":  "ASCII-Shader",
+                                                 "new":  "HLSL-Shader"
+                                             },
+                                             {
+                                                 "old":  "CPU-Partikel",
+                                                 "new":  "Niagara FX"
+                                             },
+                                             {
+                                                 "old":  "Gebackene Beleuchtung",
+                                                 "new":  "Lumen GI"
+                                             }
+                                         ]
+                           }
+             },
+    "prereg":  {
+                   "title":  "Voranmeldung",
+                   "kicker":  "Registrierte Spieler",
+                   "emailPlaceholder":  "Geben Sie die E-Mail-Adresse ein",
+                   "submit":  "Einreichen",
+                   "pending":  "Überprüfung...",
+                   "rewards":  "Jeder vorregistrierte Spitzname erhält nach Erreichen von Level 50 den Titel „Einer der Ersten“.",
+                   "errors":  {
+                                  "required":  "Geben Sie eine E-Mail-Adresse ein, um fortzufahren.",
+                                  "invalid":  "Geben Sie eine gültige E-Mail-Adresse ein."
+                              }
+               },
+    "support":  {
+                    "cta":  "Dankbarkeit",
+                    "kicker":  "Dollar gespendet",
+                    "amountPlaceholder":  "Geben Sie den Betrag ein",
+                    "pending":  "Senden...",
+                    "description":  "Alle gespendeten Mittel werden für die Marketingkampagne verwendet.",
+                    "success":  "Betrag ${amount} erfasst. Als nächstes kann ein echter Zahlungsfluss angeschlossen werden.",
+                    "errors":  {
+                                   "required":  "Geben Sie einen Spendenbetrag ein.",
+                                   "invalid":  "Der Mindestspendenbetrag beträgt 10 $."
+                               }
+                },
+    "participants":  {
+                         "title":  "Teilnehmer"
+                     },
+    "newWorld":  {
+                     "title":  "Neue Welt: Vorher und Nachher",
+                     "before":  "Vorher: Serious Engine 1.5",
+                     "after":  "Nachher: ​​Unreal Engine 5.7",
+                     "pairs":  [
+                                   "Hafen",
+                                   "Zitadelle",
+                                   "Ebenen",
+                                   "Schlucht"
+                               ]
+                 },
+    "classes":  {
+                    "title":  "Klassen",
+                    "kicker":  "Wählen Sie die Kraft, die Sie in die neue Welt trägt",
+                    "items":  [
+                                  {
+                                      "name":  "Titan",
+                                      "role":  "Frontbrecher",
+                                      "sigil":  "T",
+                                      "tagline":  "Ein schwerer Nahkampfkrieger, der auf Stärke und Ausdauer basiert.",
+                                      "description":  "Titan in Last Chaos setzt auf rohe Gewalt und hohe Ausdauer. Die Basisklasse verwendet eine Axt und verzweigt sich auf Stufe 31 in Highlander oder Warmaster.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Highlander",
+                                                              "role":  "Axt und maximaler physischer Schaden",
+                                                              "description":  "Highlander behält die Axt, erhält einige der höchsten physischen Angriffe im Spiel, mehrere AoE-Angriffe, verlangsamende Werkzeuge und die Selbststärkung „Perfekter Körper“, die bei weniger als 70 % HP ausgelöst wird.",
+                                                              "focus":  [
+                                                                            "Axt",
+                                                                            "AoE-Schaden",
+                                                                            "Perfekter Körper"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Axt"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Nahkampf"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Kriegsmeister",
+                                                              "role":  "Schwert-, HP- und Gruppenkontrolle",
+                                                              "description":  "Warmaster kämpft mit einem Schwert, greift schneller an, hat die höchsten Basis-HP und HP-Regeneration und fügt AoE-Druck, Betäubungen, Verlangsamungen und gruppenunterstützende Buffs hinzu.",
+                                                              "focus":  [
+                                                                            "Schwert",
+                                                                            "Betäubend und langsam",
+                                                                            "Partyfans"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Schwert"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Nahkampf"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Waffe",
+                                                        "value":  "Axt"
+                                                    },
+                                                    {
+                                                        "label":  "Kampf",
+                                                        "value":  "Nahkampf"
+                                                    },
+                                                    {
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "HL / WM"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Kraft und Ausdauer",
+                                                     "Schwerer Nahkampf",
+                                                     "Jobaufteilung der Stufe 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Ritter",
+                                      "role":  "Formationswächter",
+                                      "sigil":  "K",
+                                      "tagline":  "Ein disziplinierter Nahkämpfer, der auf Verteidigung und Taktik basiert.",
+                                      "description":  "Knight in Last Chaos ist eine langlebige Nahkampfklasse, die sich auf Schutz und Kampffähigkeiten konzentriert. Auf Level 31 verzweigt es sich in Royal Knight oder Templer Knight.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Königlicher Ritter",
+                                                              "role":  "Doppelschwerter und mobiler Duellant",
+                                                              "description":  "Royal Knight ist dafür bekannt, mit zwei Schwertern zu kämpfen, hohe Bewegungsgeschwindigkeit, starken Angriff und Verteidigung, feindliche Betäubungen und eine Verbesserung der Gruppentrefferquote.",
+                                                              "focus":  [
+                                                                            "Doppelschwerter",
+                                                                            "Betäuben",
+                                                                            "Trefferquote-Buff"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Klingen"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Nahkampf"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Templerritter",
+                                                              "role":  "Schwert und Schild, maximale Verteidigung",
+                                                              "description":  "Der Tempelritter nutzt Schwert und Schild, verfügt über eine sehr hohe Verteidigung, viele Werkzeuge zur Unterstützung von Verbündeten und einen geringeren Angriff als der Königliche Ritter, während er gleichzeitig eine Reduzierung der Elementarverteidigung hinzufügt.",
+                                                              "focus":  [
+                                                                            "Schwert und Schild",
+                                                                            "Unterstützung der Partei",
+                                                                            "Elementar-Debuff"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Schwert und Schild"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Nahkampf"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Waffe",
+                                                        "value":  "Schwert"
+                                                    },
+                                                    {
+                                                        "label":  "Kampf",
+                                                        "value":  "Nahkampf"
+                                                    },
+                                                    {
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "RK / TK"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Verteidigung und Taktik",
+                                                     "Kontrolle an vorderster Front",
+                                                     "Jobaufteilung der Stufe 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Heiler",
+                                      "role":  "Herzstück der Party",
+                                      "sigil":  "H",
+                                      "tagline":  "Eine leichte Fernkampfklasse, die durch Mana heilt und schützt.",
+                                      "description":  "Der Heiler in Last Chaos nutzt Mana für Heilmagie und trägt leichte Rüstung, was die Klasse im direkten Kampf verwundbar macht. Seine Basiswaffen sind Zepter oder Bogen, und auf Stufe 31 verzweigt er sich in Kleriker oder Bogenschütze.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Kleriker",
+                                                              "role":  "Starke Heilung und Buffs",
+                                                              "description":  "Kleriker ist ein starker Heiler und Magier, der Verbündete wiederherstellen, Schwächungen entfernen, Feinde betäuben und mehrere Schutzstärkungen bereitstellen kann, einschließlich EXP- und SP-Unterstützung.",
+                                                              "focus":  [
+                                                                            "Heilung",
+                                                                            "Debuff-Entfernung",
+                                                                            "Buffs"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Zepter"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Fernkampf"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Bogenschütze",
+                                                              "role":  "Fahrerflucht im Fernkampf",
+                                                              "description":  "Der Bogenschütze ist der agile Zweig mit einem Bogen, der für Distanzdruck, Treffer auf mehrere Ziele, Betäubung von bis zu fünf Feinden, Stille, Verlangsamung und HP/MP-Unterstützung für Verbündete gebaut ist.",
+                                                              "focus":  [
+                                                                            "Bogen",
+                                                                            "Betäuben / verlangsamen",
+                                                                            "HP/MP-Unterstützung"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Bogen"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Fernkampf"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Waffe",
+                                                        "value":  "Zepter / Bogen"
+                                                    },
+                                                    {
+                                                        "label":  "Kampf",
+                                                        "value":  "Fernkampf"
+                                                    },
+                                                    {
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "CL / AR"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Heilung und Schutz",
+                                                     "Leichte Rüstung",
+                                                     "Jobaufteilung der Stufe 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Magier",
+                                      "role":  "Fernkampf-Verwüstung",
+                                      "sigil":  "M",
+                                      "tagline":  "Eine Fernkampf-Magieklasse, die auf Manaschaden und Flüchen basiert.",
+                                      "description":  "Der Magier in Last Chaos studiert die Dunklen Künste und verursacht schweren magischen Schaden, verfügt aber über eine schwache physische Verteidigung. Seine Basiswaffen sind Zauberstäbe oder Stäbe, und auf Stufe 31 verzweigt es sich in Hexe oder Zauberer.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Hexe",
+                                                              "role":  "Flüche und Kontrolle",
+                                                              "description":  "Die Hexe benutzt einen Zauberstab und neigt zu Flüchen, Versteinern, Blindheit, Schlaf, Buff-Entfernung und HP-Entzug. Die Klassenführer beschreiben es als den Debuff-lastigen Zweig mit Elementarverteidigungsreduzierung.",
+                                                              "focus":  [
+                                                                            "Flüche",
+                                                                            "Versteinern / schlafen",
+                                                                            "Buff-Entfernung"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Zauberstab"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Fernkampf"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Zauberer",
+                                                              "role":  "Stab und schwerer AoE",
+                                                              "description":  "Der Zauberer verwendet einen Stab für eine höhere magische Kraft pro Treffer, mehrere Elementar-AoE-Angriffe und eine spezielle Fähigkeit zur Manawiederherstellung. Es ist der stärkere Massenschadenszweig.",
+                                                              "focus":  [
+                                                                            "Personal",
+                                                                            "Elementarer AoE",
+                                                                            "Mana-Wiederherstellung"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Personal"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Fernkampf"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Waffe",
+                                                        "value":  "Zauberstab / Stab"
+                                                    },
+                                                    {
+                                                        "label":  "Kampf",
+                                                        "value":  "Fernkampf"
+                                                    },
+                                                    {
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "WT/WZ"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Hoher magischer Schaden",
+                                                     "Geringe Verteidigung",
+                                                     "Jobaufteilung der Stufe 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Schurke",
+                                      "role":  "Backline-Attentäter",
+                                      "sigil":  "R",
+                                      "tagline":  "Ein schneller Sportunterricht, der sich um Tarnung und Unsichtbarkeit dreht.",
+                                      "description":  "Der Schurke in „Last Chaos“ versteckt sich, flankiert und greift mit einer Armbrust oder einem Dolch an. Es handelt sich um eine flinke Klasse mit schnellem Kampftempo, die auf Stufe 31 in Assassine oder Ranger übergeht.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Attentäter",
+                                                              "role":  "Dolche und Zieleliminierung",
+                                                              "description":  "Der Attentäter verwendet zwei Dolche, kann sie aus der Verborgenheit werfen, Ziele einfangen, den Tod vortäuschen und Monster-Aggro fallen lassen. Die Leitfäden positionieren ihn als den direkten Single-Target-Zweig.",
+                                                              "focus":  [
+                                                                            "Dolche",
+                                                                            "Schlinge",
+                                                                            "Den Tod vortäuschen"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Dolche"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Nahkampf"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Ranger",
+                                                              "role":  "Armbrust und hohe Genauigkeit",
+                                                              "description":  "Ranger nutzt eine Armbrust, um aus sicherer Entfernung anzugreifen, hat eine sehr hohe Trefferquote und fügt Betäubungen, Schlingen, Unsichtbarkeit und Selbststärkungen für Angriff und Genauigkeit hinzu.",
+                                                              "focus":  [
+                                                                            "Armbrust",
+                                                                            "Hohe Trefferquote",
+                                                                            "Betäubung / Unsichtbarkeit"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Armbrust"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Fernkampf"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Waffe",
+                                                        "value":  "Dolche / Armbrust"
+                                                    },
+                                                    {
+                                                        "label":  "Kampf",
+                                                        "value":  "Nahkampf / Fernkampf"
+                                                    },
+                                                    {
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "AS / RN"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Tarnung",
+                                                     "Hohe Geschwindigkeit",
+                                                     "Jobaufteilung der Stufe 31"
+                                                 ]
+                                  },
+                                  {
+                                      "name":  "Zauberer",
+                                      "role":  "Dunkler Ritualist",
+                                      "sigil":  "S",
+                                      "tagline":  "Eine Hochelfen-Elementarklasse, die auf Beschwörungen und Haltungswahl basiert.",
+                                      "description":  "Der Zauberer in Last Chaos beschwört Elementare und nutzt die Kraft der vier Elemente zum Angriff. Die Klasse kann auf kurze oder große Distanz mit Sense oder Fallarm operieren und verzweigt sich dann auf Stufe 31 in Elementarmagier oder Spezialist.",
+                                      "professions":  [
+                                                          {
+                                                              "name":  "Elementarmagier",
+                                                              "role":  "Geister und Fallwaffen",
+                                                              "description":  "Elementalist behält den beschwörungsorientierten Spielstil bei, verwendet einen Fallarm und kämpft durch Geister, AoE und Elementarangriffe. Die Klassenführer nennen es einen der härtesten Jobs in LC.",
+                                                              "focus":  [
+                                                                            "Elementare",
+                                                                            "Fallarm",
+                                                                            "AoE"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Fallarm"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Nahkampf"
+                                                                            }
+                                                                        ]
+                                                          },
+                                                          {
+                                                              "name":  "Spezialist",
+                                                              "role":  "Transformationen und Sense",
+                                                              "description":  "Der Spezialist gibt Elementare im Austausch für die Verwandlung in eine Ritterform oder eine Dämonenform auf. Es ist bekannt für hohes Ausweichen, hohe kritische Trefferquote und schnelle Angriffe.",
+                                                              "focus":  [
+                                                                            "Ritterform",
+                                                                            "Dämonenform",
+                                                                            "Sense"
+                                                                        ],
+                                                              "stats":  [
+                                                                            {
+                                                                                "label":  "Waffe",
+                                                                                "value":  "Sense"
+                                                                            },
+                                                                            {
+                                                                                "label":  "Kampf",
+                                                                                "value":  "Gemischt"
+                                                                            }
+                                                                        ]
+                                                          }
+                                                      ],
+                                      "stats":  [
+                                                    {
+                                                        "label":  "Waffe",
+                                                        "value":  "Sense / Fallarm"
+                                                    },
+                                                    {
+                                                        "label":  "Kampf",
+                                                        "value":  "Nahkampf / Fernkampf"
+                                                    },
+                                                    {
+                                                        "label":  "31+ Jobs",
+                                                        "value":  "EL / SP"
+                                                    }
+                                                ],
+                                      "traits":  [
+                                                     "Elemente und Vorladung",
+                                                     "Flexibles Sortiment",
+                                                     "Jobaufteilung der Stufe 31"
+                                                 ]
+                                  }
+                              ]
+                },
+    "content":  {
+                    "title":  "Inhalt",
+                    "items":  [
+                                  {
+                                      "name":  "Gilden",
+                                      "eyebrow":  "GEMEINSCHAFTSKRAFT",
+                                      "subtitle":  "Mehr als ein Schild über deinem Kopf: eine große Kampfstruktur mit echtem Gewicht in der Welt.",
+                                      "bullets":  [
+                                                      "Bis zu 100 Spieler unter einem Banner",
+                                                      "Hierarchie, Rollen und ständige Koordination",
+                                                      "Die Grundlage für Belagerungen, PvP und langfristiges Gruppenspiel"
+                                                  ],
+                                      "factLabel":  "Skala",
+                                      "factValue":  "Bis zu 100 Spieler",
+                                      "highlights":  [
+                                                         "Allianz",
+                                                         "Hierarchie",
+                                                         "Skala"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "PvP",
+                                      "eyebrow":  "LIVE-KONFLIKT",
+                                      "subtitle":  "Eine Welt, in der Gefahr nicht nur von Monstern, sondern auch von anderen Spielern ausgeht.",
+                                      "bullets":  [
+                                                      "Offene Zusammenstöße ohne lange Vorbereitung",
+                                                      "Ständige Anspannung und die Gefahr eines plötzlichen Kontakts",
+                                                      "Duelle, Jagd und persönliche Rivalität gehören zur Atmosphäre"
+                                                  ],
+                                      "factLabel":  "Modus",
+                                      "factValue":  "Offener Konflikt",
+                                      "highlights":  [
+                                                         "Duelle",
+                                                         "Jagd",
+                                                         "Risiko"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Belagerungen",
+                                      "eyebrow":  "KRIEG UM EINFLUSS",
+                                      "subtitle":  "Kein lokales Gefecht, sondern ein großer Krieg, bei dem der Druck an der Front überall zu spüren ist.",
+                                      "bullets":  [
+                                                      "Kämpfe um Schlüsselpunkte und die Kontrolle über den Weltraum",
+                                                      "Der Sieg hängt ebenso von der Formation wie von der rohen Kraft ab",
+                                                      "Ein einziger Positionierungsfehler kann den ganzen Kampf umschlagen"
+                                                  ],
+                                      "factLabel":  "Format",
+                                      "factValue":  "Massiver Gildenkrieg",
+                                      "highlights":  [
+                                                         "Frontlinie",
+                                                         "Erfassen",
+                                                         "Kontrolle"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Turniere",
+                                      "eyebrow":  "WETTBEWERBSRHYTHMUS",
+                                      "subtitle":  "Ein wiederkehrender Wettkampfrhythmus, der die stärksten Spieler termingerecht zusammenbringt.",
+                                      "bullets":  [
+                                                      "Automatischer Start jedes Wochenende ohne manuelle Einrichtung",
+                                                      "Ein klarer Kreislauf aus Eintritt und echter Event-Energie",
+                                                      "Ein Ort, an dem Aufbau und Vorbereitung für sich sprechen"
+                                                  ],
+                                      "factLabel":  "Start",
+                                      "factValue":  "Am Wochenende automatisch",
+                                      "highlights":  [
+                                                         "Arena",
+                                                         "Rang",
+                                                         "Prestige"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Bosse",
+                                      "eyebrow":  "GRUPPENJAGD",
+                                      "subtitle":  "Schwere Begegnungen, bei denen rohe Gewalt ohne Disziplin schnell zum Scheitern führt.",
+                                      "bullets":  [
+                                                      "Mächtige Bosse mit hohen Kosten für jeden Fehler",
+                                                      "Timing, Rollen und Gruppendisziplin sind wichtiger als zufälliger Schaden",
+                                                      "Das Gefühl einer echten Jagd statt routinemäßigem PvE"
+                                                  ],
+                                      "factLabel":  "Kampftyp",
+                                      "factValue":  "Gruppen-PvE-Begegnungen",
+                                      "highlights":  [
+                                                         "Jagd",
+                                                         "Rollen",
+                                                         "Timing"
+                                                     ]
+                                  },
+                                  {
+                                      "name":  "Basteln",
+                                      "eyebrow":  "WELTWIRTSCHAFT",
+                                      "subtitle":  "Materialien, Produktion und Ausrüstungswachstum, die sich direkt auf den Wert Ihrer Einnahmen auswirken.",
+                                      "bullets":  [
+                                                      "Ressourcen sammeln und in nützliche Materialien umwandeln",
+                                                      "Gegenstände herstellen und Ausrüstung verbessern",
+                                                      "Eine direkte Verbindung zwischen Beute, Fortschritt und Spielerökonomie"
+                                                  ],
+                                      "factLabel":  "System",
+                                      "factValue":  "Produktion und Weiterentwicklung",
+                                      "highlights":  [
+                                                         "Ressourcen",
+                                                         "Produktion",
+                                                         "Fortschritt"
+                                                     ]
+                                  }
+                              ]
+                },
+    "roadmap":  {
+                    "title":  "Migrations-Roadmap",
+                    "completedLabel":  "Abgeschlossene Phase",
+                    "currentLabel":  "Aktueller Schwerpunkt",
+                    "inProgressLabel":  "Im Gange",
+                    "steps":  [
+                                  {
+                                      "title":  "Tech-Audit",
+                                      "desc":  "Codebasis- und Asset-Pipeline-Audit",
+                                      "detail":  "Wir zerlegen das Projekt auf seine Grundlagen: Code, Assets, Tools, Legacy-Abhängigkeiten und jede versteckte Verbindung, die die Spielwelt über die Jahre hinweg am Laufen gehalten hat. Diese Phase stellt sicher, dass bei der Migration kein kritisches System verloren geht und jeder nächste Schritt auf einer präzisen Weltkarte statt auf Vermutungen basiert. Hier identifizieren wir technische Engpässe, riskante Bereiche der Logik, veraltete Lösungen und die Elemente, die innerhalb der neuen Architektur nicht nur verschoben, sondern erheblich gestärkt werden sollten. In der Praxis verwandelt die Prüfung die Migration von einem gefährlichen Sprung in eine kontrollierte Offensive, bei der jedes Detail im Voraus bekannt ist und jede zukünftige Entscheidung durch Beweise gestützt wird.",
+                                      "done":  true
+                                  },
+                                  {
+                                      "title":  "Kernmigration",
+                                      "desc":  "Server- und Kampflogikmigration",
+                                      "detail":  "Serverarchitektur, Kampflogik und die grundlegenden Spielregeln werden in die neue Umgebung verschoben, ohne den Geist des Originals zu verlieren. Hier bewahren wir den Kern des Projekts, damit Unreal das Spiel stärkt, anstatt seine Identität auszulöschen. Das Ziel besteht nicht nur darin, die Systeme zum Laufen zu bringen, sondern auch darin, den Kampfrhythmus, den Fortschrittsfluss und die interne Logik der Welt beizubehalten, die die Spieler bereits instinktiv kennen. Wir heben das Fundament des Projekts auf ein höheres technisches Niveau, sodass unter der Haube alles stärker, sauberer und stabiler wird, während es sich an der Oberfläche immer noch so anfühlt, als würden sich die LastChaos-Spieler erinnern, nur ohne die alten Einschränkungen. This is the phase where the structural strength of the new world is forged.",
+                                      "done":  true
+                                  },
+                                  {
+                                      "title":  "Visuelle Überarbeitung",
+                                      "desc":  "Materialien, Beleuchtung und Posteffekte",
+                                      "detail":  "Die alte Welt erhält einen neuen Körper: moderne Materialien, lebendiges Licht, atmosphärische Schatten und filmische Tiefe. Unser Ziel ist es nicht nur, die Optik aufzufrischen, sondern auch bekannte Orte sichtbar zu machen, als ob sie schon immer so aussehen sollten. Wir stellen das Raumgefühl selbst wieder her: wie Metall das Licht einfängt, wie alter Stein im Schatten liest, wie Nebel die Entfernung mildert und wie sich Sonnenlicht über Architektur, Felder und Wasser legt. In dieser Phase geht es nicht nur um Schönheit, sondern auch um emotionale Wirkung, darum, einen bekannten Ort in einen Rahmen zu verwandeln, der einem Trailer-Poster würdig erscheint. Die visuelle Überarbeitung muss beweisen, dass Unreal nicht nur die Hülle des Projekts verändert, sondern auch die Art und Weise, wie die Welt in jeder Szene wahrgenommen wird.",
+                                      "done":  false,
+                                      "inProgress":  true
+                                  },
+                                  {
+                                      "title":  "Geschlossene Beta",
+                                      "desc":  "Tests mit eingeschränktem Zugriff",
+                                      "detail":  "Dies ist der Moment, in dem die ersten Spieler die neue Welt betreten, um Stabilität, Balance und das Gesamtgefühl des Erlebnisses zu testen. Das Projekt hört hier auf, eine interne Konstruktion zu sein, und beginnt, seine Stärke im Live-Kontakt mit der Community unter Beweis zu stellen. Die geschlossene Beta ist kein zeremonieller Meilenstein, sondern ein echter Test unter Druck: Wie sich Kämpfe mit der Zeit anfühlen, wo das Tempo nachlässt, was bei langen Sitzungen kaputt geht und welche Details eher von echten Spielern als vom Auge eines Entwicklers wahrgenommen werden. Hier erhalten wir ein möglichst ehrliches Feedback, das eine beeindruckende Präsentation von einer wirklich fertigen Spielwelt unterscheidet. Es ist eine Phase der Verfeinerung durch den Kontakt mit der Community, in der das Projekt vor seiner ersten echten Bewährungsprobe steht.",
+                                      "done":  false
+                                  },
+                                  {
+                                      "title":  "Release-Vorbereitung",
+                                      "desc":  "Optimierung und Release-Builds",
+                                      "detail":  "Endgültiger Feinschliff, Optimierung, Last-Mile-Fixes und Vorbereitung der Release-Builds. Dies ist nicht nur der Start einer weiteren Version, sondern der offizielle Übergang in die nächste Ära von Unreal LastChaos. In dieser Phase muss alles zusammenarbeiten: Leistung, Stabilität, visuelle Qualität, UX und das Gefühl, dass jedes Element vollständig und durchdacht ist. Wir bringen den Build in einen Zustand, in dem er sich nicht mehr wie ein ehrgeiziges Experiment anfühlt, sondern wie ein völlig neues Kapitel des Projekts. Dies ist der Punkt, an dem Migration aufhört, ein interner Teamprozess zu sein, und zu einer öffentlichen Tatsache wird: Die Welt wurde wiedergeboren, die neue Technologie wurde beansprucht, und was vor uns liegt, ist nicht mehr der Übergang, sondern das Leben der nächsten Version des Spiels.",
+                                      "done":  false
+                                  }
+                              ]
+                },
+    "media":  {
+                  "title":  "Medien",
+                  "counterLabel":  "Modus",
+                  "labels":  {
+                                 "watch":  "Betrachten",
+                                 "open":  "Offen",
+                                 "visit":  "Besuchen",
+                                 "download":  "Download",
+                                 "close":  "Schließen",
+                                 "previous":  "Vorheriger Frame",
+                                 "next":  "Nächster Frame",
+                                 "videoFallback":  "Ihr Browser unterstützt das Video-Tag nicht."
+                             },
+                  "modes":  [
+                                {
+                                    "name":  "Screenshots",
+                                    "descriptor":  "Live-Bilder und Weltwinkel im Spiel",
+                                    "hero":  {
+                                                 "kind":  "image",
+                                                 "eyebrow":  "Welt im Spiel",
+                                                 "title":  "Live-Frames ohne Putzpolitur",
+                                                 "copy":  "Das Spiel wird so gezeigt, wie es die Spieler tatsächlich sehen werden: Weltszenen, Beleuchtung, Architektur und Atmosphäre ohne inszenierte Retusche.",
+                                                 "image":  "/media/hero-start-poster.webp",
+                                                 "src":  "/media/hero-start-poster.webp",
+                                                 "download":  "/media/hero-start-poster.webp",
+                                                 "meta":  "4K-Aufnahme",
+                                                 "action":  "Offener Rahmen"
+                                             },
+                                    "items":  [
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Titan",
+                                                      "meta":  "Kampfsilhouette",
+                                                      "image":  "/cards/titan.png",
+                                                      "src":  "/cards/titan.png",
+                                                      "download":  "/cards/titan.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Ritter",
+                                                      "meta":  "Schwere Rüstung",
+                                                      "image":  "/cards/knight.png",
+                                                      "src":  "/cards/knight.png",
+                                                      "download":  "/cards/knight.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Heiler",
+                                                      "meta":  "Stützlicht",
+                                                      "image":  "/cards/healer.png",
+                                                      "src":  "/cards/healer.png",
+                                                      "download":  "/cards/healer.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Magier",
+                                                      "meta":  "Bühnenbeleuchtung",
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/cards/mage.png",
+                                                      "download":  "/cards/mage.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Schurke",
+                                                      "meta":  "Scharfer Winkel",
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/cards/rogue.png",
+                                                      "download":  "/cards/rogue.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Zauberer",
+                                                      "meta":  "Dunkle Palette",
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/cards/sorcerer.png",
+                                                      "download":  "/cards/sorcerer.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Stadt bei Nacht",
+                                                      "meta":  "Weltatmosphäre",
+                                                      "image":  "/media/hero-start-poster.webp",
+                                                      "src":  "/media/hero-start-poster.webp",
+                                                      "download":  "/media/hero-start-poster.webp"
+                                                  }
+                                              ]
+                                },
+                                {
+                                    "name":  "Video",
+                                    "descriptor":  "Trailer, Teaser und Gameplay-Rollen",
+                                    "hero":  {
+                                                 "kind":  "video",
+                                                 "eyebrow":  "Offizielle Rolle",
+                                                 "title":  "Trailer zum Projektstart",
+                                                 "copy":  "Eine große Videobühne für Trailer und längere Gameplay-Stücke, die das Projekt zunächst vorstellen sollen.",
+                                                 "image":  "/media/hero-start-poster.webp",
+                                                 "src":  "/media/hero-start.mp4",
+                                                 "download":  "/media/hero-start.mp4",
+                                                 "meta":  "Trailer / 01:24",
+                                                 "action":  "Betrachten"
+                                             },
+                                    "items":  [
+                                                  {
+                                                      "kind":  "video",
+                                                      "title":  "Update-Teaser",
+                                                      "meta":  "00:32",
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
+                                                  },
+                                                  {
+                                                      "kind":  "video",
+                                                      "title":  "Weltdurchflug",
+                                                      "meta":  "01:08",
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
+                                                  },
+                                                  {
+                                                      "kind":  "video",
+                                                      "title":  "Kampf aus nächster Nähe",
+                                                      "meta":  "00:48",
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/media/hero-start.mp4",
+                                                      "download":  "/media/hero-start.mp4"
+                                                  }
+                                              ]
+                                },
+                                {
+                                    "name":  "Hintergrundbilder",
+                                    "descriptor":  "Vorgerenderte Kunst und Ultra-Shot-Materialien",
+                                    "hero":  {
+                                                 "kind":  "image",
+                                                 "eyebrow":  "Kunsttropfen",
+                                                 "title":  "Desktop-Hintergründe",
+                                                 "copy":  "Ein separater Modus für vorgerenderte Bilder und Ultra-Shot-Materialien, die als offizielle Projekthintergründe dienen können.",
+                                                 "image":  "/cards/sorcerer.png",
+                                                 "src":  "/cards/sorcerer.png",
+                                                 "download":  "/cards/sorcerer.png",
+                                                 "meta":  "3840 x 2160",
+                                                 "action":  "Herunterladen"
+                                             },
+                                    "items":  [
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Zauberer",
+                                                      "meta":  "Desktop 4K",
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "src":  "/cards/sorcerer.png",
+                                                      "download":  "/cards/sorcerer.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Magier",
+                                                      "meta":  "Desktop 4K",
+                                                      "image":  "/cards/mage.png",
+                                                      "src":  "/cards/mage.png",
+                                                      "download":  "/cards/mage.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Schurke",
+                                                      "meta":  "Desktop 4K",
+                                                      "image":  "/cards/rogue.png",
+                                                      "src":  "/cards/rogue.png",
+                                                      "download":  "/cards/rogue.png"
+                                                  },
+                                                  {
+                                                      "kind":  "image",
+                                                      "title":  "Heiler",
+                                                      "meta":  "Desktop 4K",
+                                                      "image":  "/cards/healer.png",
+                                                      "src":  "/cards/healer.png",
+                                                      "download":  "/cards/healer.png"
+                                                  }
+                                              ]
+                                },
+                                {
+                                    "name":  "Partner",
+                                    "descriptor":  "Projektberichterstattung von Medienpartnern",
+                                    "hero":  {
+                                                 "kind":  "external",
+                                                 "eyebrow":  "Medienrelais",
+                                                 "title":  "Externe Berichterstattung über das Projekt",
+                                                 "copy":  "Ein spezielles Regal für Videos und Berichterstattung von Partnerplattformen: YouTube, Twitch, VK und anderen externen Medien.",
+                                                 "image":  "/media/hero-start-poster.webp",
+                                                 "href":  "https://www.youtube.com",
+                                                 "meta":  "YouTube / Twitch / VK",
+                                                 "action":  "Offen"
+                                             },
+                                    "items":  [
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Migrationsaufschlüsselung",
+                                                      "meta":  "YouTube · StormVeil",
+                                                      "image":  "/cards/knight.png",
+                                                      "href":  "https://www.youtube.com"
+                                                  },
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Neuer Weltstrom",
+                                                      "meta":  "Twitch · LunaCore",
+                                                      "image":  "/cards/healer.png",
+                                                      "href":  "https://www.twitch.tv"
+                                                  },
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Community-Promo",
+                                                      "meta":  "VK · IronShade",
+                                                      "image":  "/cards/titan.png",
+                                                      "href":  "https://vk.com"
+                                                  },
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Zielgruppenfunktion",
+                                                      "meta":  "YouTube · HexNova",
+                                                      "image":  "/cards/mage.png",
+                                                      "href":  "https://www.youtube.com"
+                                                  },
+                                                  {
+                                                      "kind":  "external",
+                                                      "title":  "Patch-Übersicht",
+                                                      "meta":  "VK · AsterVox",
+                                                      "image":  "/cards/sorcerer.png",
+                                                      "href":  "https://vk.com"
+                                                  }
+                                              ]
+                                }
+                            ]
+              },
+    "popup":  {
+                  "title":  "Bestätigung",
+                  "sentPrefix":  "Code gesendet an",
+                  "bindingNote":  "Ihr Vorregistrierungs-Spitzname ist nur für das Konto verfügbar, das mit dieser E-Mail registriert wurde. Pro E-Mail kann nur ein Konto und ein Spitzname registriert werden. Die Liste der vorregistrierten Spitznamen wird am 1. Januar 2027 zurückgesetzt.",
+                  "codePlaceholder":  "Bestätigungscode",
+                  "nicknamePlaceholder":  "Bevorzugter Spitzname",
+                  "codeHint":  "Verwenden Sie den Code aus der E-Mail. Im Moment akzeptieren wir 4-8 Ziffern.",
+                  "nicknameHint":  "3 bis 16 Zeichen: Buchstaben, Zahlen oder Unterstriche.",
+                  "pending":  "Bestätigen...",
+                  "successTitle":  "Spitzname reserviert",
+                  "successPrefix":  "Spitzname",
+                  "successMiddle":  "wurde vorab angemeldet",
+                  "successNicknameLabel":  "Spitzname",
+                  "successEmailLabel":  "E-Mail",
+                  "successClose":  "Erledigt",
+                  "confirm":  "Bestätigen",
+                  "close":  "Schließen",
+                  "errors":  {
+                                 "codeRequired":  "Geben Sie den Bestätigungscode ein.",
+                                 "codeInvalid":  "Der Code muss 4 bis 8 Ziffern enthalten.",
+                                 "nicknameRequired":  "Geben Sie einen Spitznamen ein.",
+                                 "nicknameInvalid":  "Der Spitzname muss zwischen 3 und 16 Zeichen lang sein und darf keine Leerzeichen oder Sonderzeichen enthalten."
+                             }
+              }
+}

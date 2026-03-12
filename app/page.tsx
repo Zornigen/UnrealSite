@@ -2,11 +2,24 @@
 
 import Image from "next/image";
 import { type CSSProperties, type TouchEvent, FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import de from "@/locales/de.json";
 import en from "@/locales/en.json";
+import fr from "@/locales/fr.json";
+import ja from "@/locales/ja.json";
 import ru from "@/locales/ru.json";
+import th from "@/locales/th.json";
 
-const translations = { en, ru };
+const translations = { en, ru, ja, th, de, fr };
 type Locale = keyof typeof translations;
+const localeOptions: Locale[] = ["ru", "en", "de", "fr", "ja", "th"];
+const localeLabels: Record<Locale, string> = {
+  ru: "RU",
+  en: "EN",
+  de: "DE",
+  fr: "FR",
+  ja: "JA",
+  th: "TH",
+};
 type FormErrors = {
   email?: string;
   amount?: string;
@@ -207,7 +220,14 @@ export default function Home() {
     if (typeof window === "undefined") return "ru";
 
     const storedLocale = window.localStorage.getItem("locale");
-    if (storedLocale === "ru" || storedLocale === "en") {
+    if (
+      storedLocale === "ru" ||
+      storedLocale === "en" ||
+      storedLocale === "de" ||
+      storedLocale === "fr" ||
+      storedLocale === "ja" ||
+      storedLocale === "th"
+    ) {
       return storedLocale;
     }
 
@@ -227,6 +247,7 @@ export default function Home() {
   const [activeRoadmapStepIndex, setActiveRoadmapStepIndex] = useState(0);
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
   const [activeMediaLightboxIndex, setActiveMediaLightboxIndex] = useState<number | null>(null);
+  const [isLocaleMenuOpen, setIsLocaleMenuOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [donationAmount, setDonationAmount] = useState("");
   const [confirmCode, setConfirmCode] = useState("");
@@ -293,10 +314,6 @@ export default function Home() {
   const scrollToSection = (id: string) => {
     const node = document.getElementById(id);
     node?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const toggleLocale = () => {
-    setLocale((prev) => (prev === "ru" ? "en" : "ru"));
   };
 
   const showNextClass = () => {
@@ -400,6 +417,30 @@ export default function Home() {
     document.documentElement.lang = locale;
     window.localStorage.setItem("locale", locale);
   }, [locale]);
+
+  useEffect(() => {
+    if (!isLocaleMenuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsLocaleMenuOpen(false);
+      }
+    };
+
+    const onPointerDown = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (target?.closest(".lang-switcher")) return;
+      setIsLocaleMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("mousedown", onPointerDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("mousedown", onPointerDown);
+    };
+  }, [isLocaleMenuOpen]);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -664,15 +705,41 @@ export default function Home() {
 
   return (
     <div className="page-root">
-      <button
-        type="button"
-        className="social-dot lang-switcher"
-        aria-label={locale === "ru" ? "Switch language to English" : "Переключить язык на русский"}
-        title={locale === "ru" ? "Switch to English" : "Переключить на русский"}
-        onClick={toggleLocale}
-      >
-        {locale.toUpperCase()}
-      </button>
+      <div className={`lang-switcher ${isLocaleMenuOpen ? "is-open" : ""}`} aria-label="Language switcher">
+        <button
+          type="button"
+          className="social-dot lang-switcher-trigger"
+          aria-haspopup="menu"
+          aria-expanded={isLocaleMenuOpen}
+          aria-label={`Current language ${localeLabels[locale]}`}
+          onClick={() => setIsLocaleMenuOpen((prev) => !prev)}
+        >
+          <span className="lang-switcher-caret" aria-hidden="true">
+            {isLocaleMenuOpen ? ">" : "<"}
+          </span>
+          <span>{localeLabels[locale]}</span>
+        </button>
+
+        <div className="lang-switcher-menu" role="menu" aria-hidden={!isLocaleMenuOpen}>
+          {localeOptions
+            .filter((option) => option !== locale)
+            .map((option) => (
+              <button
+                key={option}
+                type="button"
+                className="social-dot lang-switcher-button"
+                role="menuitem"
+                title={localeLabels[option]}
+                onClick={() => {
+                  setLocale(option);
+                  setIsLocaleMenuOpen(false);
+                }}
+              >
+                {localeLabels[option]}
+              </button>
+            ))}
+        </div>
+      </div>
 
       <aside className="social-rail" aria-label={t.aria.socialLinks}>
         {t.social.map((item) => (
@@ -708,7 +775,7 @@ export default function Home() {
         <div className="hero-shade" />
         <p
           className={`hero-tag hero-tag-fixed hero-tag-anim step-${badgeStep} ${
-            hideHeroTagOnMobile ? "is-hidden-mobile" : ""
+            hideHeroTagOnMobile || isLocaleMenuOpen ? "is-hidden-mobile" : ""
           }`}
         >
           <span className="tag-line tag-line-morph">
